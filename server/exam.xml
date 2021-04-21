@@ -1,163 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JMdict>
 <entry>
-<ent_seq>1000320</ent_seq>
+<ent_seq>1000000</ent_seq>
+<r_ele>
+<reb>ヽ</reb>
+</r_ele>
+<sense>
+<pos>&unc;</pos>
+<xref>一の字点</xref>
+<gloss g_type="expl">repetition mark in katakana</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000010</ent_seq>
+<r_ele>
+<reb>ヾ</reb>
+</r_ele>
+<sense>
+<pos>&unc;</pos>
+<gloss g_type="expl">voiced repetition mark in katakana</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000020</ent_seq>
+<r_ele>
+<reb>ゝ</reb>
+</r_ele>
+<sense>
+<pos>&unc;</pos>
+<gloss g_type="expl">repetition mark in hiragana</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000030</ent_seq>
+<r_ele>
+<reb>ゞ</reb>
+</r_ele>
+<sense>
+<pos>&unc;</pos>
+<gloss g_type="expl">voiced repetition mark in hiragana</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000040</ent_seq>
 <k_ele>
-<keb>彼処</keb>
-<ke_pri>ichi1</ke_pri>
+<keb>〃</keb>
 </k_ele>
+<r_ele>
+<reb>おなじ</reb>
+</r_ele>
+<r_ele>
+<reb>おなじく</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>ditto mark</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000050</ent_seq>
 <k_ele>
-<keb>彼所</keb>
+<keb>仝</keb>
 </k_ele>
 <r_ele>
-<reb>あそこ</reb>
-<re_pri>ichi1</re_pri>
+<reb>どうじょう</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>"as above" mark</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000060</ent_seq>
+<k_ele>
+<keb>々</keb>
+</k_ele>
+<r_ele>
+<reb>のま</reb>
 </r_ele>
 <r_ele>
-<reb>あすこ</reb>
-</r_ele>
-<r_ele>
-<reb>かしこ</reb>
-</r_ele>
-<r_ele>
-<reb>アソコ</reb>
+<reb>ノマ</reb>
 <re_nokanji/>
 </r_ele>
-<r_ele>
-<reb>あしこ</reb>
-<re_inf>&ok;</re_inf>
-</r_ele>
-<r_ele>
-<reb>あこ</reb>
-<re_inf>&ok;</re_inf>
-</r_ele>
 <sense>
-<pos>&pn;</pos>
-<xref>どこ・1</xref>
-<xref>ここ・1</xref>
-<xref>そこ・1</xref>
-<misc>&uk;</misc>
-<s_inf>place physically distant from both speaker and listener</s_inf>
-<gloss>there</gloss>
-<gloss>over there</gloss>
-<gloss>that place</gloss>
-<gloss>yonder</gloss>
-<gloss>you-know-where</gloss>
-</sense>
-<sense>
-<stagr>あそこ</stagr>
-<stagr>あすこ</stagr>
-<stagr>アソコ</stagr>
-<pos>&n;</pos>
-<misc>&col;</misc>
-<misc>&uk;</misc>
-<gloss>genitals</gloss>
-<gloss>private parts</gloss>
-<gloss>nether regions</gloss>
-</sense>
-<sense>
-<pos>&n;</pos>
-<xref>あれほど</xref>
-<misc>&uk;</misc>
-<s_inf>something psychologically distant from both speaker and listener</s_inf>
-<gloss>that far</gloss>
-<gloss>that much</gloss>
-<gloss>that point</gloss>
+<pos>&unc;</pos>
+<xref>同の字点</xref>
+<gloss g_type="expl">kanji repetition mark</gloss>
 </sense>
 </entry>
 <entry>
-<ent_seq>1000360</ent_seq>
-<r_ele>
-<reb>あっさり</reb>
-<re_pri>ichi1</re_pri>
-</r_ele>
-<r_ele>
-<reb>アッサリ</reb>
-</r_ele>
-<sense>
-<pos>&adv;</pos>
-<pos>&adv-to;</pos>
-<pos>&vs;</pos>
-<misc>&on-mim;</misc>
-<gloss>easily</gloss>
-<gloss>readily</gloss>
-<gloss>quickly</gloss>
-<gloss>flatly (refuse)</gloss>
-</sense>
-<sense>
-<pos>&adv;</pos>
-<pos>&adv-to;</pos>
-<pos>&vs;</pos>
-<misc>&on-mim;</misc>
-<gloss>lightly (seasoned food, applied make-up, etc.)</gloss>
-<gloss>plainly</gloss>
-<gloss>simply</gloss>
-</sense>
-</entry>
-<entry>
-<ent_seq>1000390</ent_seq>
+<ent_seq>1000080</ent_seq>
 <k_ele>
-<keb>あっという間に</keb>
+<keb>漢数字ゼロ</keb>
+</k_ele>
+<r_ele>
+<reb>かんすうじゼロ</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<xref>○・まる・1</xref>
+<xref>漢数字</xref>
+<gloss>"kanji" zero</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000090</ent_seq>
+<k_ele>
+<keb>○</keb>
+</k_ele>
+<k_ele>
+<keb>〇</keb>
+</k_ele>
+<r_ele>
+<reb>まる</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<xref>丸・まる・1</xref>
+<gloss>circle (sometimes used for zero)</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<xref>二重丸・にじゅうまる</xref>
+<gloss>'correct' (when marking)</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<xref>〇〇・まるまる・1</xref>
+<gloss>symbol used as a placeholder (either because a number of other words could be used in that position, or because of censorship)</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<xref>句点</xref>
+<gloss>period</gloss>
+<gloss>full stop</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<xref>半濁点</xref>
+<gloss>maru mark</gloss>
+<gloss>semivoiced sound</gloss>
+<gloss>p-sound</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000100</ent_seq>
+<k_ele>
+<keb>ＡＢＣ順</keb>
+</k_ele>
+<r_ele>
+<reb>エービーシーじゅん</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>alphabetical order</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000110</ent_seq>
+<k_ele>
+<keb>ＣＤプレーヤー</keb>
 <ke_pri>spec1</ke_pri>
 </k_ele>
 <k_ele>
-<keb>あっと言う間に</keb>
-</k_ele>
-<k_ele>
-<keb>あっとゆう間に</keb>
-</k_ele>
-<k_ele>
-<keb>アッという間に</keb>
-</k_ele>
-<k_ele>
-<keb>アッと言う間に</keb>
-</k_ele>
-<k_ele>
-<keb>アッとゆう間に</keb>
+<keb>ＣＤプレイヤー</keb>
 </k_ele>
 <r_ele>
-<reb>あっというまに</reb>
-<re_restr>あっという間に</re_restr>
-<re_restr>あっと言う間に</re_restr>
+<reb>シーディープレーヤー</reb>
+<re_restr>ＣＤプレーヤー</re_restr>
 <re_pri>spec1</re_pri>
 </r_ele>
 <r_ele>
-<reb>あっとゆうまに</reb>
-<re_restr>あっと言う間に</re_restr>
-<re_restr>あっとゆう間に</re_restr>
-</r_ele>
-<r_ele>
-<reb>アッというまに</reb>
-<re_restr>アッという間に</re_restr>
-<re_restr>アッと言う間に</re_restr>
-</r_ele>
-<r_ele>
-<reb>アッとゆうまに</reb>
-<re_restr>アッと言う間に</re_restr>
-<re_restr>アッとゆう間に</re_restr>
+<reb>シーディープレイヤー</reb>
+<re_restr>ＣＤプレイヤー</re_restr>
 </r_ele>
 <sense>
-<pos>&exp;</pos>
-<pos>&adv;</pos>
-<gloss>just like that</gloss>
-<gloss>in the twinkling of an eye</gloss>
-<gloss>in the blink of an eye</gloss>
-<gloss g_type="lit">in the time it takes to say "ah!"</gloss>
+<pos>&n;</pos>
+<gloss>CD player</gloss>
 </sense>
 </entry>
 <entry>
-<ent_seq>1000400</ent_seq>
+<ent_seq>1000130</ent_seq>
+<k_ele>
+<keb>Ｎ響</keb>
+</k_ele>
 <r_ele>
-<reb>あっぷあっぷ</reb>
+<reb>エヌきょう</reb>
 </r_ele>
 <sense>
-<pos>&adv;</pos>
-<pos>&adv-to;</pos>
-<pos>&vs;</pos>
-<gloss>floundering while nearly drowning</gloss>
-</sense>
-<sense>
-<pos>&adv;</pos>
-<pos>&adv-to;</pos>
-<pos>&vs;</pos>
-<gloss>suffering</gloss>
+<pos>&n;</pos>
+<misc>&abbr;</misc>
+<gloss>NHK Symphony Orchestra</gloss>
 </sense>
 </entry>
+<entry>
+<ent_seq>1000140</ent_seq>
+<k_ele>
+<keb>Ｏバック</keb>
+</k_ele>
+<r_ele>
+<reb>オーバック</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>O-back</gloss>
+<gloss>skirt with peek-a-boo hole in rump</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000150</ent_seq>
+<k_ele>
+<keb>ＲＳ２３２ケーブル</keb>
+</k_ele>
+<r_ele>
+<reb>アールエスにさんにケーブル</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>rs232 cable</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000160</ent_seq>
+<k_ele>
+<keb>Ｔシャツ</keb>
+<ke_pri>spec1</ke_pri>
+</k_ele>
+<r_ele>
+<reb>ティーシャツ</reb>
+<re_pri>spec1</re_pri>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>T-shirt</gloss>
+<gloss>tee shirt</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000170</ent_seq>
+<k_ele>
+<keb>Ｔバック</keb>
+<ke_pri>spec1</ke_pri>
+</k_ele>
+<r_ele>
+<reb>ティーバック</reb>
+<re_pri>spec1</re_pri>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>T-back</gloss>
+<gloss>bikini thong</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000200</ent_seq>
+<k_ele>
+<keb>あうんの呼吸</keb>
+</k_ele>
+<k_ele>
+<keb>阿吽の呼吸</keb>
+</k_ele>
+<r_ele>
+<reb>あうんのこきゅう</reb>
+</r_ele>
+<sense>
+<pos>&exp;</pos>
+<pos>&n;</pos>
+<misc>&id;</misc>
+<gloss>the harmonizing, mentally and physically, of two parties engaged in an activity</gloss>
+<gloss>singing from the same hymn-sheet</gloss>
+<gloss>dancing to the same beat</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000210</ent_seq>
+<r_ele>
+<reb>あおば</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<xref>やまびこ</xref>
+<misc>&obs;</misc>
+<gloss>(former) regular (stops at every station) Tōhoku-line Shinkansen</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000220</ent_seq>
+<k_ele>
+<keb>明白</keb>
+<ke_pri>ichi1</ke_pri>
+<ke_pri>news1</ke_pri>
+<ke_pri>nf10</ke_pri>
+</k_ele>
+<r_ele>
+<reb>めいはく</reb>
+<re_pri>ichi1</re_pri>
+<re_pri>news1</re_pri>
+<re_pri>nf10</re_pri>
+</r_ele>
+<sense>
+<pos>&adj-na;</pos>
+<gloss>obvious</gloss>
+<gloss>clear</gloss>
+<gloss>plain</gloss>
+<gloss>evident</gloss>
+<gloss>apparent</gloss>
+<gloss>explicit</gloss>
+<gloss>overt</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000225</ent_seq>
+<k_ele>
+<keb>明白</keb>
+<ke_inf>&ateji;</ke_inf>
+</k_ele>
+<k_ele>
+<keb>偸閑</keb>
+<ke_inf>&ateji;</ke_inf>
+</k_ele>
+<k_ele>
+<keb>白地</keb>
+<ke_inf>&ateji;</ke_inf>
+</k_ele>
+<r_ele>
+<reb>あからさま</reb>
+</r_ele>
+<sense>
+<pos>&adj-na;</pos>
+<pos>&adj-no;</pos>
+<misc>&uk;</misc>
+<gloss>plain</gloss>
+<gloss>frank</gloss>
+<gloss>candid</gloss>
+<gloss>open</gloss>
+<gloss>direct</gloss>
+<gloss>straightforward</gloss>
+<gloss>unabashed</gloss>
+<gloss>blatant</gloss>
+<gloss>flagrant</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000230</ent_seq>
+<k_ele>
+<keb>明かん</keb>
+</k_ele>
+<r_ele>
+<reb>あかん</reb>
+</r_ele>
+<r_ele>
+<reb>アカン</reb>
+<re_nokanji/>
+</r_ele>
+<sense>
+<pos>&exp;</pos>
+<misc>&uk;</misc>
+<s_inf>commonly used with adj-i inflections, e.g. あかんかった, あかんくない, etc.</s_inf>
+<dial>&ksb;</dial>
+<gloss>useless</gloss>
+<gloss>no good</gloss>
+<gloss>hopeless</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000260</ent_seq>
+<k_ele>
+<keb>悪どい</keb>
+</k_ele>
+<r_ele>
+<reb>あくどい</reb>
+</r_ele>
+<sense>
+<pos>&adj-i;</pos>
+<xref>あくが強い・あくがつよい・2</xref>
+<misc>&uk;</misc>
+<s_inf>あく from 灰汁</s_inf>
+<gloss>gaudy</gloss>
+<gloss>showy</gloss>
+<gloss>garish</gloss>
+<gloss>loud</gloss>
+</sense>
+<sense>
+<pos>&adj-i;</pos>
+<misc>&uk;</misc>
+<gloss>crooked</gloss>
+<gloss>vicious</gloss>
+<gloss>wicked</gloss>
+<gloss>nasty</gloss>
+<gloss>unscrupulous</gloss>
+<gloss>dishonest</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000280</ent_seq>
+<k_ele>
+<keb>論う</keb>
+</k_ele>
+<r_ele>
+<reb>あげつらう</reb>
+</r_ele>
+<sense>
+<pos>&v5u;</pos>
+<pos>&vt;</pos>
+<misc>&uk;</misc>
+<gloss>to discuss</gloss>
+</sense>
+<sense>
+<pos>&v5u;</pos>
+<pos>&vt;</pos>
+<gloss>to find fault with</gloss>
+<gloss>to criticize</gloss>
+<gloss>to criticise</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000290</ent_seq>
+<r_ele>
+<reb>あさひ</reb>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<gloss>Jouetsu line express Shinkansen</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000300</ent_seq>
+<k_ele>
+<keb>遇う</keb>
+</k_ele>
+<k_ele>
+<keb>配う</keb>
+</k_ele>
+<r_ele>
+<reb>あしらう</reb>
+</r_ele>
+<sense>
+<stagk>遇う</stagk>
+<pos>&v5u;</pos>
+<pos>&vt;</pos>
+<misc>&uk;</misc>
+<gloss>to treat</gloss>
+<gloss>to handle</gloss>
+<gloss>to deal with</gloss>
+</sense>
+<sense>
+<pos>&v5u;</pos>
+<pos>&vt;</pos>
+<misc>&uk;</misc>
+<gloss>to arrange</gloss>
+<gloss>to decorate</gloss>
+<gloss>to dress</gloss>
+<gloss>to garnish</gloss>
+</sense>
+</entry>
+</JMdict>

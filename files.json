@@ -1,0 +1,399 @@
+{
+    "JMdict": {
+        "entry": [
+            {
+                "ent_seq": ["1000000"],
+                "r_ele": [{ "reb": ["ヽ"] }],
+                "sense": [
+                    {
+                        "pos": ["&unc;"],
+                        "xref": ["一の字点"],
+                        "gloss": [
+                            {
+                                "_": "repetition mark in katakana",
+                                "$": { "g_type": "expl" }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000010"],
+                "r_ele": [{ "reb": ["ヾ"] }],
+                "sense": [
+                    {
+                        "pos": ["&unc;"],
+                        "gloss": [
+                            {
+                                "_": "voiced repetition mark in katakana",
+                                "$": { "g_type": "expl" }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000020"],
+                "r_ele": [{ "reb": ["ゝ"] }],
+                "sense": [
+                    {
+                        "pos": ["&unc;"],
+                        "gloss": [
+                            {
+                                "_": "repetition mark in hiragana",
+                                "$": { "g_type": "expl" }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000030"],
+                "r_ele": [{ "reb": ["ゞ"] }],
+                "sense": [
+                    {
+                        "pos": ["&unc;"],
+                        "gloss": [
+                            {
+                                "_": "voiced repetition mark in hiragana",
+                                "$": { "g_type": "expl" }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000040"],
+                "k_ele": [{ "keb": ["〃"] }],
+                "r_ele": [{ "reb": ["おなじ"] }, { "reb": ["おなじく"] }],
+                "sense": [{ "pos": ["&n;"], "gloss": ["ditto mark"] }]
+            },
+            {
+                "ent_seq": ["1000050"],
+                "k_ele": [{ "keb": ["仝"] }],
+                "r_ele": [{ "reb": ["どうじょう"] }],
+                "sense": [{ "pos": ["&n;"], "gloss": ["\"as above\" mark"] }]
+            },
+            {
+                "ent_seq": ["1000060"],
+                "k_ele": [{ "keb": ["々"] }],
+                "r_ele": [
+                    { "reb": ["のま"] },
+                    { "reb": ["ノマ"], "re_nokanji": [""] }
+                ],
+                "sense": [
+                    {
+                        "pos": ["&unc;"],
+                        "xref": ["同の字点"],
+                        "gloss": [
+                            {
+                                "_": "kanji repetition mark",
+                                "$": { "g_type": "expl" }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000080"],
+                "k_ele": [{ "keb": ["漢数字ゼロ"] }],
+                "r_ele": [{ "reb": ["かんすうじゼロ"] }],
+                "sense": [
+                    {
+                        "pos": ["&n;"],
+                        "xref": ["○・まる・1", "漢数字"],
+                        "gloss": ["\"kanji\" zero"]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000090"],
+                "k_ele": [{ "keb": ["○"] }, { "keb": ["〇"] }],
+                "r_ele": [{ "reb": ["まる"] }],
+                "sense": [
+                    {
+                        "pos": ["&n;"],
+                        "xref": ["丸・まる・1"],
+                        "gloss": ["circle (sometimes used for zero)"]
+                    },
+                    {
+                        "pos": ["&n;"],
+                        "xref": ["二重丸・にじゅうまる"],
+                        "gloss": ["'correct' (when marking)"]
+                    },
+                    {
+                        "pos": ["&n;"],
+                        "xref": ["〇〇・まるまる・1"],
+                        "gloss": [
+                            "symbol used as a placeholder (either because a number of other words could be used in that position, or because of censorship)"
+                        ]
+                    },
+                    {
+                        "pos": ["&n;"],
+                        "xref": ["句点"],
+                        "gloss": ["period", "full stop"]
+                    },
+                    {
+                        "pos": ["&n;"],
+                        "xref": ["半濁点"],
+                        "gloss": ["maru mark", "semivoiced sound", "p-sound"]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000100"],
+                "k_ele": [{ "keb": ["ＡＢＣ順"] }],
+                "r_ele": [{ "reb": ["エービーシーじゅん"] }],
+                "sense": [{ "pos": ["&n;"], "gloss": ["alphabetical order"] }]
+            },
+            {
+                "ent_seq": ["1000110"],
+                "k_ele": [
+                    { "keb": ["ＣＤプレーヤー"], "ke_pri": ["spec1"] },
+                    { "keb": ["ＣＤプレイヤー"] }
+                ],
+                "r_ele": [
+                    {
+                        "reb": ["シーディープレーヤー"],
+                        "re_restr": ["ＣＤプレーヤー"],
+                        "re_pri": ["spec1"]
+                    },
+                    {
+                        "reb": ["シーディープレイヤー"],
+                        "re_restr": ["ＣＤプレイヤー"]
+                    }
+                ],
+                "sense": [{ "pos": ["&n;"], "gloss": ["CD player"] }]
+            },
+            {
+                "ent_seq": ["1000130"],
+                "k_ele": [{ "keb": ["Ｎ響"] }],
+                "r_ele": [{ "reb": ["エヌきょう"] }],
+                "sense": [
+                    {
+                        "pos": ["&n;"],
+                        "misc": ["&abbr;"],
+                        "gloss": ["NHK Symphony Orchestra"]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000140"],
+                "k_ele": [{ "keb": ["Ｏバック"] }],
+                "r_ele": [{ "reb": ["オーバック"] }],
+                "sense": [
+                    {
+                        "pos": ["&n;"],
+                        "gloss": [
+                            "O-back",
+                            "skirt with peek-a-boo hole in rump"
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000150"],
+                "k_ele": [{ "keb": ["ＲＳ２３２ケーブル"] }],
+                "r_ele": [{ "reb": ["アールエスにさんにケーブル"] }],
+                "sense": [{ "pos": ["&n;"], "gloss": ["rs232 cable"] }]
+            },
+            {
+                "ent_seq": ["1000160"],
+                "k_ele": [{ "keb": ["Ｔシャツ"], "ke_pri": ["spec1"] }],
+                "r_ele": [{ "reb": ["ティーシャツ"], "re_pri": ["spec1"] }],
+                "sense": [{ "pos": ["&n;"], "gloss": ["T-shirt", "tee shirt"] }]
+            },
+            {
+                "ent_seq": ["1000170"],
+                "k_ele": [{ "keb": ["Ｔバック"], "ke_pri": ["spec1"] }],
+                "r_ele": [{ "reb": ["ティーバック"], "re_pri": ["spec1"] }],
+                "sense": [
+                    { "pos": ["&n;"], "gloss": ["T-back", "bikini thong"] }
+                ]
+            },
+            {
+                "ent_seq": ["1000200"],
+                "k_ele": [
+                    { "keb": ["あうんの呼吸"] },
+                    { "keb": ["阿吽の呼吸"] }
+                ],
+                "r_ele": [{ "reb": ["あうんのこきゅう"] }],
+                "sense": [
+                    {
+                        "pos": ["&exp;", "&n;"],
+                        "misc": ["&id;"],
+                        "gloss": [
+                            "the harmonizing, mentally and physically, of two parties engaged in an activity",
+                            "singing from the same hymn-sheet",
+                            "dancing to the same beat"
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000210"],
+                "r_ele": [{ "reb": ["あおば"] }],
+                "sense": [
+                    {
+                        "pos": ["&n;"],
+                        "xref": ["やまびこ"],
+                        "misc": ["&obs;"],
+                        "gloss": [
+                            "(former) regular (stops at every station) Tōhoku-line Shinkansen"
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000220"],
+                "k_ele": [
+                    { "keb": ["明白"], "ke_pri": ["ichi1", "news1", "nf10"] }
+                ],
+                "r_ele": [
+                    {
+                        "reb": ["めいはく"],
+                        "re_pri": ["ichi1", "news1", "nf10"]
+                    }
+                ],
+                "sense": [
+                    {
+                        "pos": ["&adj-na;"],
+                        "gloss": [
+                            "obvious",
+                            "clear",
+                            "plain",
+                            "evident",
+                            "apparent",
+                            "explicit",
+                            "overt"
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000225"],
+                "k_ele": [
+                    { "keb": ["明白"], "ke_inf": ["&ateji;"] },
+                    { "keb": ["偸閑"], "ke_inf": ["&ateji;"] },
+                    { "keb": ["白地"], "ke_inf": ["&ateji;"] }
+                ],
+                "r_ele": [{ "reb": ["あからさま"] }],
+                "sense": [
+                    {
+                        "pos": ["&adj-na;", "&adj-no;"],
+                        "misc": ["&uk;"],
+                        "gloss": [
+                            "plain",
+                            "frank",
+                            "candid",
+                            "open",
+                            "direct",
+                            "straightforward",
+                            "unabashed",
+                            "blatant",
+                            "flagrant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000230"],
+                "k_ele": [{ "keb": ["明かん"] }],
+                "r_ele": [
+                    { "reb": ["あかん"] },
+                    { "reb": ["アカン"], "re_nokanji": [""] }
+                ],
+                "sense": [
+                    {
+                        "pos": ["&exp;"],
+                        "misc": ["&uk;"],
+                        "s_inf": [
+                            "commonly used with adj-i inflections, e.g. あかんかった, あかんくない, etc."
+                        ],
+                        "dial": ["&ksb;"],
+                        "gloss": ["useless", "no good", "hopeless"]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000260"],
+                "k_ele": [{ "keb": ["悪どい"] }],
+                "r_ele": [{ "reb": ["あくどい"] }],
+                "sense": [
+                    {
+                        "pos": ["&adj-i;"],
+                        "xref": ["あくが強い・あくがつよい・2"],
+                        "misc": ["&uk;"],
+                        "s_inf": ["あく from 灰汁"],
+                        "gloss": ["gaudy", "showy", "garish", "loud"]
+                    },
+                    {
+                        "pos": ["&adj-i;"],
+                        "misc": ["&uk;"],
+                        "gloss": [
+                            "crooked",
+                            "vicious",
+                            "wicked",
+                            "nasty",
+                            "unscrupulous",
+                            "dishonest"
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000280"],
+                "k_ele": [{ "keb": ["論う"] }],
+                "r_ele": [{ "reb": ["あげつらう"] }],
+                "sense": [
+                    {
+                        "pos": ["&v5u;", "&vt;"],
+                        "misc": ["&uk;"],
+                        "gloss": ["to discuss"]
+                    },
+                    {
+                        "pos": ["&v5u;", "&vt;"],
+                        "gloss": [
+                            "to find fault with",
+                            "to criticize",
+                            "to criticise"
+                        ]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000290"],
+                "r_ele": [{ "reb": ["あさひ"] }],
+                "sense": [
+                    {
+                        "pos": ["&n;"],
+                        "gloss": ["Jouetsu line express Shinkansen"]
+                    }
+                ]
+            },
+            {
+                "ent_seq": ["1000300"],
+                "k_ele": [{ "keb": ["遇う"] }, { "keb": ["配う"] }],
+                "r_ele": [{ "reb": ["あしらう"] }],
+                "sense": [
+                    {
+                        "stagk": ["遇う"],
+                        "pos": ["&v5u;", "&vt;"],
+                        "misc": ["&uk;"],
+                        "gloss": ["to treat", "to handle", "to deal with"]
+                    },
+                    {
+                        "pos": ["&v5u;", "&vt;"],
+                        "misc": ["&uk;"],
+                        "gloss": [
+                            "to arrange",
+                            "to decorate",
+                            "to dress",
+                            "to garnish"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
