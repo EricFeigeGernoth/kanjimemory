@@ -1,0 +1,163 @@
+<entry>
+<ent_seq>1000320</ent_seq>
+<k_ele>
+<keb>彼処</keb>
+<ke_pri>ichi1</ke_pri>
+</k_ele>
+<k_ele>
+<keb>彼所</keb>
+</k_ele>
+<r_ele>
+<reb>あそこ</reb>
+<re_pri>ichi1</re_pri>
+</r_ele>
+<r_ele>
+<reb>あすこ</reb>
+</r_ele>
+<r_ele>
+<reb>かしこ</reb>
+</r_ele>
+<r_ele>
+<reb>アソコ</reb>
+<re_nokanji/>
+</r_ele>
+<r_ele>
+<reb>あしこ</reb>
+<re_inf>&ok;</re_inf>
+</r_ele>
+<r_ele>
+<reb>あこ</reb>
+<re_inf>&ok;</re_inf>
+</r_ele>
+<sense>
+<pos>&pn;</pos>
+<xref>どこ・1</xref>
+<xref>ここ・1</xref>
+<xref>そこ・1</xref>
+<misc>&uk;</misc>
+<s_inf>place physically distant from both speaker and listener</s_inf>
+<gloss>there</gloss>
+<gloss>over there</gloss>
+<gloss>that place</gloss>
+<gloss>yonder</gloss>
+<gloss>you-know-where</gloss>
+</sense>
+<sense>
+<stagr>あそこ</stagr>
+<stagr>あすこ</stagr>
+<stagr>アソコ</stagr>
+<pos>&n;</pos>
+<misc>&col;</misc>
+<misc>&uk;</misc>
+<gloss>genitals</gloss>
+<gloss>private parts</gloss>
+<gloss>nether regions</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<xref>あれほど</xref>
+<misc>&uk;</misc>
+<s_inf>something psychologically distant from both speaker and listener</s_inf>
+<gloss>that far</gloss>
+<gloss>that much</gloss>
+<gloss>that point</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000360</ent_seq>
+<r_ele>
+<reb>あっさり</reb>
+<re_pri>ichi1</re_pri>
+</r_ele>
+<r_ele>
+<reb>アッサリ</reb>
+</r_ele>
+<sense>
+<pos>&adv;</pos>
+<pos>&adv-to;</pos>
+<pos>&vs;</pos>
+<misc>&on-mim;</misc>
+<gloss>easily</gloss>
+<gloss>readily</gloss>
+<gloss>quickly</gloss>
+<gloss>flatly (refuse)</gloss>
+</sense>
+<sense>
+<pos>&adv;</pos>
+<pos>&adv-to;</pos>
+<pos>&vs;</pos>
+<misc>&on-mim;</misc>
+<gloss>lightly (seasoned food, applied make-up, etc.)</gloss>
+<gloss>plainly</gloss>
+<gloss>simply</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000390</ent_seq>
+<k_ele>
+<keb>あっという間に</keb>
+<ke_pri>spec1</ke_pri>
+</k_ele>
+<k_ele>
+<keb>あっと言う間に</keb>
+</k_ele>
+<k_ele>
+<keb>あっとゆう間に</keb>
+</k_ele>
+<k_ele>
+<keb>アッという間に</keb>
+</k_ele>
+<k_ele>
+<keb>アッと言う間に</keb>
+</k_ele>
+<k_ele>
+<keb>アッとゆう間に</keb>
+</k_ele>
+<r_ele>
+<reb>あっというまに</reb>
+<re_restr>あっという間に</re_restr>
+<re_restr>あっと言う間に</re_restr>
+<re_pri>spec1</re_pri>
+</r_ele>
+<r_ele>
+<reb>あっとゆうまに</reb>
+<re_restr>あっと言う間に</re_restr>
+<re_restr>あっとゆう間に</re_restr>
+</r_ele>
+<r_ele>
+<reb>アッというまに</reb>
+<re_restr>アッという間に</re_restr>
+<re_restr>アッと言う間に</re_restr>
+</r_ele>
+<r_ele>
+<reb>アッとゆうまに</reb>
+<re_restr>アッと言う間に</re_restr>
+<re_restr>アッとゆう間に</re_restr>
+</r_ele>
+<sense>
+<pos>&exp;</pos>
+<pos>&adv;</pos>
+<gloss>just like that</gloss>
+<gloss>in the twinkling of an eye</gloss>
+<gloss>in the blink of an eye</gloss>
+<gloss g_type="lit">in the time it takes to say "ah!"</gloss>
+</sense>
+</entry>
+<entry>
+<ent_seq>1000400</ent_seq>
+<r_ele>
+<reb>あっぷあっぷ</reb>
+</r_ele>
+<sense>
+<pos>&adv;</pos>
+<pos>&adv-to;</pos>
+<pos>&vs;</pos>
+<gloss>floundering while nearly drowning</gloss>
+</sense>
+<sense>
+<pos>&adv;</pos>
+<pos>&adv-to;</pos>
+<pos>&vs;</pos>
+<gloss>suffering</gloss>
+</sense>
+</entry>
