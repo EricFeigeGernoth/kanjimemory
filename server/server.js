@@ -15,7 +15,14 @@ const cookieSessionMiddleware = cookieSession({
     secret: `I'm always angry.`,
     maxAge: 1000 * 60 * 60 * 24 * 90,
 });
-const { addSignInData, getUser, getProfile } = require("./sql/db");
+const {
+    addSignInData,
+    getUser,
+    getProfile,
+    postNewDeck,
+    getDeckNames,
+    getAllDecks,
+} = require("./sql/db");
 
 //Middleware
 app.use(compression());
@@ -118,6 +125,45 @@ app.get("/landingprofile", (req, res) => {
         .catch((err) => {
             console.log("data in landingProfile: ", err);
         });
+});
+
+app.post("/newdeck", (req, res) => {
+    console.log("newDeck say hello");
+    console.log("newDeck", req.body);
+    console.log(req.body.deck);
+
+    console.log("userId", req.session.userId);
+    if (req.body.deck == null) {
+        res.json({ noEntry: true });
+    }
+    getDeckNames(req.session.userId).then((data) => {
+        // console.log("decknames", data.rows);
+        // console.log("specific deck anme", data.rows[0].deckname);
+        if (data.rows) {
+            for (var i = 0; i < data.rows.length; i++) {
+                if (req.body.deck == data.rows[i].deckname) {
+                    res.json({ duplicateDeck: true });
+                }
+            }
+        }
+
+        postNewDeck(req.session.userId, req.body.deck).then((data) => {
+            console.log("newDeck", data);
+            res.json([data.rows, { newDeck: true }]);
+        });
+    });
+});
+
+app.get("/getDecks", (req, res) => {
+    console.log("userId", req.session.userId);
+
+    getAllDecks(req.session.userId).then((result) => {
+        console.log(result.rows);
+        if (result.rows == null) {
+            res.json({ noDeck: true });
+        }
+        res.json(result.rows);
+    });
 });
 
 app.get("*", function (req, res) {

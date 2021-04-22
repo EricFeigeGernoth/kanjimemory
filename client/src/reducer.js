@@ -6,5 +6,12 @@ export default function (state = {}, action) {
             landingProfile: action.profile,
         };
     }
+    if (action.type == "ALL_DECKS") {
+        console.log("in reducer ALL DECKS");
+        state = {
+            ...state,
+            allDecks: action.decks,
+        };
+    }
     return state;
 }

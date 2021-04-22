@@ -81,9 +81,6 @@ export default class Login extends Component {
                                 Click to go to Registration
                             </p>
                         </Link>
-                        <Link to="/resetpassword">
-                            <p className="subtitle">Reset your password</p>
-                        </Link>
                     </div>
                 </div>
             </div>

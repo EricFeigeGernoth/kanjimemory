@@ -1,3 +1,27 @@
 body {
     background-color: ghostwhite;
 }
+
+.flashcard {
+    height: 300px;
+    width: 200px;
+    background-color: aqua;
+    border: 2px black solid;
+}
+
+.editCard {
+    height: 100px;
+    width: 150px;
+}
+
+.deckPicture {
+    height: 100px;
+    width: 150px;
+    border: 2px black solid;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

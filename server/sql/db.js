@@ -20,3 +20,17 @@ module.exports.getUser = function (email) {
 module.exports.getProfile = function (id) {
     return db.query(`SELECT * FROM users WHERE id=$1`, [id]);
 };
+
+module.exports.postNewDeck = function (id, name) {
+    return db.query(
+        `INSERT INTO deck (deckuser, deckname) VALUES ($1, $2) RETURNING deckuser, deckname`,
+        [id, name]
+    );
+};
+
+module.exports.getDeckNames = function (id) {
+    return db.query(`SELECT deckname FROM deck WHERE deckuser=$1`, [id]);
+};
+module.exports.getAllDecks = function (id) {
+    return db.query(`SELECT * FROM deck WHERE deckuser=$1`, [id]);
+};

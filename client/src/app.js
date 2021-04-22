@@ -15,6 +15,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 // import Chat from "./components/chat";
 import Landing from "./components/landing";
 import DeckCreator from "./components/deckcreator";
+import addCards from "./components/addcards";
 
 export class App extends Component {
     constructor(props) {
@@ -43,11 +44,18 @@ export class App extends Component {
         return (
             <section>
                 {" "}
-                <div>
-                    <p>I am here</p>
+                <div className="navBar">
+                    <a href="/">
+                        {" "}
+                        <p>Landing</p>
+                    </a>
                     <a href="/deckcreator">
                         {" "}
                         <p>Create Deck</p>
+                    </a>
+                    <a href="/addcarts">
+                        {" "}
+                        <p>Add Cards to your deck</p>
                     </a>
                 </div>
                 <div></div>
@@ -59,6 +67,7 @@ export class App extends Component {
                             path="/deckcreator"
                             component={DeckCreator}
                         />
+                        <Route exact path="/addcarts" component={addCards} />
                         {/* <Route path="/findusers" component={FindPeople} />
                         <Route path="/friends" component={Friends} />
                         <Route path="/chat" component={Chat} /> */}
