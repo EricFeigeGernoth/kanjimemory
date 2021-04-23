@@ -34,3 +34,12 @@ module.exports.getDeckNames = function (id) {
 module.exports.getAllDecks = function (id) {
     return db.query(`SELECT * FROM deck WHERE deckuser=$1`, [id]);
 };
+
+module.exports.getAllCards = function (id) {
+    return db.query(
+        `SELECT cards.id, cards.decknumber, cards.front, cards.back, deck.deckname FROM cards
+LEFT OUTER JOIN deck
+ON cards.decknumber = deck.id WHERE deck.id =$1`,
+        [id]
+    );
+};

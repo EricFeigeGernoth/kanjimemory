@@ -22,6 +22,7 @@ const {
     postNewDeck,
     getDeckNames,
     getAllDecks,
+    getAllCards,
 } = require("./sql/db");
 
 //Middleware
@@ -154,15 +155,26 @@ app.post("/newdeck", (req, res) => {
     });
 });
 
-app.get("/getDecks", (req, res) => {
+app.get("/getdecks", (req, res) => {
     console.log("userId", req.session.userId);
 
     getAllDecks(req.session.userId).then((result) => {
-        console.log(result.rows);
+        // console.log(result.rows);
         if (result.rows == null) {
             res.json({ noDeck: true });
         }
         res.json(result.rows);
+    });
+});
+
+app.get("/getcards/:deckid", (req, res) => {
+    console.log("getCards", req.body);
+    console.log("deckid for getcards", req.params.deckid);
+    if (req.params.deckid == null) {
+        res.json({ firstCreateDeck: true });
+    }
+    getAllCards(req.params.deckid).then((result) => {
+        console.log("result getCards", result);
     });
 });
 

@@ -20,9 +20,27 @@ export function profile() {
 export function getAllDecks() {
     console.log("I am sane");
     return axios
-        .get("getDecks")
+        .get("getdecks")
         .then((result) => {
             console.log("result in postNewDeck", result.data);
+            return {
+                type: "ALL_DECKS",
+                decks: result.data,
+                // array we got back from the server
+            };
+        })
+        .catch((err) => {
+            console.log("data in getAllDecks: ", err);
+        });
+}
+
+export function getAllCards(deckid) {
+    console.log("I am sane and getting Cards");
+    console.log("deckid getAllcards", deckid);
+    return axios
+        .get(`getcards/${deckid}`)
+        .then((result) => {
+            console.log("result in getallcards", result.data);
             return {
                 type: "ALL_DECKS",
                 decks: result.data,
