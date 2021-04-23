@@ -23,6 +23,7 @@ const {
     getDeckNames,
     getAllDecks,
     getAllCards,
+    addNewCard,
 } = require("./sql/db");
 
 //Middleware
@@ -177,6 +178,20 @@ app.get("/getcards/:deckid", (req, res) => {
         console.log("result getCards", result);
         res.json(result.rows);
     });
+});
+
+app.post("/addcard", (req, res) => {
+    console.log("req.body addcard", req.body);
+    let { deckid, front, back } = req.body;
+    console.log("front", front);
+    addNewCard(deckid, front, back)
+        .then((result) => {
+            console.log("addcard", result);
+            res.json(result.rows);
+        })
+        .catch((err) => {
+            console.log("data in addcard error: ", err);
+        });
 });
 
 app.get("*", function (req, res) {

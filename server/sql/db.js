@@ -43,3 +43,10 @@ ON cards.decknumber = deck.id WHERE deck.id =$1`,
         [id]
     );
 };
+
+module.exports.addNewCard = function (id, front, back) {
+    return db.query(
+        `INSERT INTO cards (decknumber, front, back) VALUES ($1, $2, $3) RETURNING decknumber, id`,
+        [id, front, back]
+    );
+};
