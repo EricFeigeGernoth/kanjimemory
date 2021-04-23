@@ -2,7 +2,7 @@ import { Component } from "react";
 // Use the CSURF axios instance ;)
 import axios from "./axios";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 // Those are from named exports, it will look differently if you have default exports ;)
 // import Logo from "./components/logo";
@@ -44,22 +44,23 @@ export class App extends Component {
         return (
             <section>
                 {" "}
-                <div className="navBar">
-                    <a href="/">
-                        {" "}
-                        <p>Landing</p>
-                    </a>
-                    <a href="/deckcreator">
-                        {" "}
-                        <p>Create Deck</p>
-                    </a>
-                    <a href="/addcarts">
-                        {" "}
-                        <p>Add Cards to your deck</p>
-                    </a>
-                </div>
-                <div></div>
                 <BrowserRouter>
+                    <div className="navBar">
+                        <Link to="/">
+                            {" "}
+                            <p>Landing</p>
+                        </Link>
+                        <Link to="/deckcreator">
+                            {" "}
+                            <p>Create Deck</p>
+                        </Link>
+                        <Link to="/addcarts">
+                            {" "}
+                            <p>Add Cards to your deck</p>
+                        </Link>
+                    </div>
+                    <div></div>
+
                     <div>
                         <Route exact path="/" render={() => <Landing />} />
                         <Route

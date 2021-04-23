@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "../axios";
-import { profile } from "../actions";
+import { profile, getAllDecks } from "../actions";
 export default function Landing() {
     const dispatch = useDispatch();
-
+    const alldecks = useSelector((state) => state && state.allDecks);
     const profiles = useSelector((state) => state && state.landingProfile);
     console.log("Profile", profiles);
 
+    console.log(alldecks);
     useEffect(() => {
         dispatch(profile());
+        dispatch(getAllDecks());
     }, []);
     return (
         <div>

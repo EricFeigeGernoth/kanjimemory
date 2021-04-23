@@ -175,6 +175,7 @@ app.get("/getcards/:deckid", (req, res) => {
     }
     getAllCards(req.params.deckid).then((result) => {
         console.log("result getCards", result);
+        res.json(result.rows);
     });
 });
 

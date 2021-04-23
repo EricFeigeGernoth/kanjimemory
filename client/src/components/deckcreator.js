@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "../axios";
-import { postNewDeck } from "../actions";
+import { addDeck } from "../actions";
 export default function DeckCreator() {
     const dispatch = useDispatch();
     const [values, setValues] = useState({});
@@ -30,6 +30,10 @@ export default function DeckCreator() {
             console.log("result from Deck", result.data);
 
             if (result.data[1] && result.data[1].newDeck) {
+                console.log(result.data[0]);
+                let deck = result.data[0];
+                console.log("deck", deck[0]);
+                dispatch(addDeck(deck[0]));
                 console.log("I have a new Deck");
                 setStatus({
                     ...status,

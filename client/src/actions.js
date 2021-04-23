@@ -34,6 +34,15 @@ export function getAllDecks() {
         });
 }
 
+export function addDeck(newdeck) {
+    console.log("I am sane");
+    return {
+        type: "NEW_DECK",
+        newDeck: newdeck,
+        // array we got back from the server
+    };
+}
+
 export function getAllCards(deckid) {
     console.log("I am sane and getting Cards");
     console.log("deckid getAllcards", deckid);
@@ -42,8 +51,8 @@ export function getAllCards(deckid) {
         .then((result) => {
             console.log("result in getallcards", result.data);
             return {
-                type: "ALL_DECKS",
-                decks: result.data,
+                type: "ALL_CARDS",
+                cards: result.data,
                 // array we got back from the server
             };
         })

@@ -13,5 +13,19 @@ export default function (state = {}, action) {
             allDecks: action.decks,
         };
     }
+    if (action.type == "NEW_DECK") {
+        console.log("in reducer NEW DECK");
+        state = {
+            ...state,
+            allDecks: [...state.allDecks, action.newDeck],
+        };
+    }
+    if (action.type == "ALL_CARDS") {
+        console.log("in reducer ALL CARDS");
+        state = {
+            ...state,
+            allCards: action.cards,
+        };
+    }
     return state;
 }

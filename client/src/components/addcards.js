@@ -6,34 +6,49 @@ export default function addCards() {
     const dispatch = useDispatch();
     // const profiles = useSelector((state) => state && state.landingProfile);
     const alldecks = useSelector((state) => state && state.allDecks);
+    const allCards = useSelector((state) => state && state.allCards);
     const [values, setValues] = useState({});
     const [deckvalue, setDeckValue] = useState({});
     const [status, setStatus] = useState({});
 
     useEffect(() => {
-        if (alldecks == null) {
+        if (alldecks == undefined || alldecks.length == 0) {
+            console.log("I am here no Decks in sight");
             setStatus({
                 ...status,
                 overview: false,
                 firstCreateDeck: true,
             });
+        } else {
+            setStatus({
+                ...status,
+                overview: true,
+                firstCreateDeck: false,
+            });
         }
-    }, []);
-    console.log("allDecks", alldecks);
+    }, [alldecks]);
+
     useEffect(() => {
-        dispatch(getAllDecks());
-        setStatus({
-            ...status,
-            overview: true,
-            firstCreateDeck: false,
-        });
-    }, []);
+        console.log(" am in allcards too early");
+        if (allCards == undefined || allCards.length == 0) {
+            setStatus({
+                ...status,
+                noCards: true,
+            });
+        }
+    }, [allCards]);
 
     useEffect(() => {
         console.log("Wow I am the chosen one");
+        setStatus({
+            ...status,
+            chosendeck: false,
+        });
         console.log("deckid", deckvalue.deckid);
-        let deckid = deckvalue.deckid;
-        dispatch(getAllCards(deckid));
+        if (deckvalue && deckvalue.deckid) {
+            let deckid = deckvalue.deckid;
+            dispatch(getAllCards(deckid));
+        }
     }, [status.chosendeck]);
 
     const handleClick = (e) => {
@@ -74,6 +89,13 @@ export default function addCards() {
             {status.firstCreateDeck && (
                 <div>
                     <p>Please create first a deck</p>
+                </div>
+            )}
+            {status.noCards && (
+                <div>
+                    <p>
+                        No Cards in the Deck would you like to enter a new one?
+                    </p>
                 </div>
             )}
         </div>
