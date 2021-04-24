@@ -56,13 +56,6 @@ export default function DeckCreator() {
                 });
             }
         });
-        // useDispatch(postDeck());
-        //  console.log("keyCheck value before Enter", e.target.value);
-        // if (e.key === "Enter") {
-        //     e.preventDefault(); // this will prevent going to the next line
-        //     socket.emit("My amazing chat message", e.target.value);
-        //     e.target.value = ""; // clears input field after we click enter
-        // }
     };
 
     return (

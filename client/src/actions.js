@@ -60,3 +60,21 @@ export function getAllCards(deckid) {
             console.log("data in getAllDecks: ", err);
         });
 }
+
+export function getMemoryCards(deckid) {
+    console.log("Memory Cards");
+    console.log("deckid getAllcards", deckid);
+    return axios
+        .get(`getmemorycards/${deckid}`)
+        .then((result) => {
+            console.log("result in getallcards", result.data);
+            return {
+                type: "MEMORY_CARDS",
+                cards: result.data,
+                // array we got back from the server
+            };
+        })
+        .catch((err) => {
+            console.log("data in getAllDecks: ", err);
+        });
+}

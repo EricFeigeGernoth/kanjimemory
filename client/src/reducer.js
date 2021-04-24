@@ -27,5 +27,12 @@ export default function (state = {}, action) {
             allCards: action.cards,
         };
     }
+    if (action.type == "MEMORY_CARDS") {
+        console.log("in reducer ALL CARDS");
+        state = {
+            ...state,
+            memoryCards: action.cards,
+        };
+    }
     return state;
 }

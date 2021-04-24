@@ -16,6 +16,7 @@ import { BrowserRouter, Link, Route } from "react-router-dom";
 import Landing from "./components/landing";
 import DeckCreator from "./components/deckcreator";
 import addCards from "./components/addcards";
+import Memory from "./components/memory";
 
 export class App extends Component {
     constructor(props) {
@@ -58,6 +59,10 @@ export class App extends Component {
                             {" "}
                             <p>Add Cards to your deck</p>
                         </Link>
+                        <Link to="/memory">
+                            {" "}
+                            <p>Start the Memory</p>
+                        </Link>
                     </div>
                     <div></div>
 
@@ -69,6 +74,7 @@ export class App extends Component {
                             component={DeckCreator}
                         />
                         <Route exact path="/addcarts" component={addCards} />
+                        <Route exact path="/memory" component={Memory} />
                         {/* <Route path="/findusers" component={FindPeople} />
                         <Route path="/friends" component={Friends} />
                         <Route path="/chat" component={Chat} /> */}

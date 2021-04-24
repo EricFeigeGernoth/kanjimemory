@@ -31,6 +31,11 @@ module.exports.postNewDeck = function (id, name) {
 module.exports.getDeckNames = function (id) {
     return db.query(`SELECT deckname FROM deck WHERE deckuser=$1`, [id]);
 };
+
+module.exports.getOneDeck = function (id) {
+    return db.query(`SELECT deckname FROM deck WHERE id=$1`, [id]);
+};
+
 module.exports.getAllDecks = function (id) {
     return db.query(`SELECT * FROM deck WHERE deckuser=$1`, [id]);
 };

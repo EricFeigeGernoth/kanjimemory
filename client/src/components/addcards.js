@@ -4,14 +4,36 @@ import axios from "../axios";
 import { getAllDecks, getAllCards } from "../actions";
 export default function addCards() {
     const dispatch = useDispatch();
-    // const profiles = useSelector((state) => state && state.landingProfile);
+
     const alldecks = useSelector((state) => state && state.allDecks);
     const allCards = useSelector((state) => state && state.allCards);
     const [values, setValues] = useState({});
     const [cardvalue, setCardValue] = useState({});
     const [deckvalue, setDeckValue] = useState({});
     const [status, setStatus] = useState({});
+    console.log("deckvalue", deckvalue);
     // console.log("status report line 13", status);
+
+    //use EFFECT for showing ALLCARDS
+    useEffect(() => {
+        console.log(" am in allcards too early");
+        if (allCards == undefined || allCards.length == 0) {
+            setStatus({
+                ...status,
+                noCards: true,
+                yescards: false,
+            });
+        } else {
+            console.log("allCards ind addcards.js", allCards);
+            setStatus({
+                ...status,
+                noCards: false,
+                yescards: true,
+            });
+        }
+    }, [allCards]);
+
+    //use EFFECT for showing ALLDECKS
     useEffect(() => {
         console.log("alldecks", alldecks);
         if (alldecks == undefined || alldecks.length == 0) {
@@ -21,6 +43,7 @@ export default function addCards() {
                 overview: false,
                 firstCreateDeck: true,
                 chosendeck: false,
+                yescards: false,
             });
         } else {
             console.log("Decks have arrived");
@@ -29,42 +52,28 @@ export default function addCards() {
                 overview: true,
                 firstCreateDeck: false,
                 chosendeck: false,
+                yescards: false,
             });
         }
     }, [alldecks]);
 
-    useEffect(() => {
-        console.log(" am in allcards too early");
-        if (allCards != undefined) {
-            setStatus({
-                ...status,
-                noCards: false,
-                yescards: true,
-            });
-        }
-    }, [allCards]);
-
+    //use EFFECT for choosing a specific Deck
     useEffect(() => {
         console.log("Wow I am the chosen one");
-        // setStatus({
-        //     ...status,
-        //     chosendeck: false,
-        // });
         console.log("deckid", deckvalue.deckid);
         if (deckvalue && deckvalue.deckid) {
             console.log("inside the if clause");
             let deckid = deckvalue.deckid;
-            dispatch(getAllCards(deckid));
-            if (allCards == undefined || allCards.length == 0) {
-                setStatus({
-                    ...status,
-                    noCards: true,
+            axios.get(`/deckname/${deckid}`).then((result) => {
+                console.log("deckname hello", result.data[0]);
+                setDeckValue({
+                    ...deckvalue,
+                    deckname: result.data[0].deckname,
                 });
-            }
-            // setStatus({
-            //     ...status,
-            //     justdispatched: true,
-            // });
+                console.log("deckvalue", deckvalue);
+                console.log("deckid still deckid?", deckid);
+                dispatch(getAllCards(deckid));
+            });
         }
     }, [status.chosendeck]);
 
@@ -92,7 +101,6 @@ export default function addCards() {
             ...cardvalue,
             [e.target.name]: e.target.value,
         });
-        // console.log("cardvalue", cardvalue);
     };
 
     const editCard = () => {
@@ -105,19 +113,43 @@ export default function addCards() {
                 yescards: true,
                 newAddedCard: true,
             });
+            clearText();
+            dispatch(getAllCards(deckvalue.deckid));
         });
-        //    if (e.target.dataset.deckid) {
-        //        setDeckValue({
-        //            ...deckvalue,
-        //            deckid: e.target.dataset.deckid,
-        //        });
-        //        setStatus({
-        //            ...status,
-        //            overview: false,
-        //            chosendeck: true,
-        //        });
-        //    }
     };
+
+    const newCard = () => {
+        setStatus({
+            ...status,
+            showEditMode: true,
+        });
+    };
+
+    const closeNewCard = () => {
+        setStatus({
+            ...status,
+            showEditMode: false,
+        });
+    };
+
+    const backToDecks = () => {
+        setStatus({
+            ...status,
+            chosendeck: false,
+            yescards: false,
+            noCards: false,
+            overview: true,
+        });
+        console.log("backtodeck");
+        console.log("deckid", deckvalue.deckid);
+        deckvalue.deckid = null;
+        console.log("deckvalue", deckvalue);
+    };
+
+    function clearText() {
+        document.getElementById("cardText1").value = "";
+        document.getElementById("cardText2").value = "";
+    }
 
     return (
         <div>
@@ -156,26 +188,70 @@ export default function addCards() {
                 <div>
                     <section>
                         {" "}
-                        <p>Yes you have a card!</p>
-                        <div className="flashcard">
-                            <p>Front side</p>
-                            <textarea
-                                name="front"
-                                className="editCard"
-                                onChange={handleChange}
-                            ></textarea>
+                        <div>
+                            {" "}
+                            <div>
+                                <p onClick={backToDecks}>
+                                    Would like to go back to the Overview of
+                                    Decks?
+                                </p>
+                            </div>
+                            <p>
+                                Your right now in Deck
+                                {deckvalue.deckname}
+                            </p>
+                            <p>
+                                Yes you have a card! Would you like to add a new
+                                one?
+                            </p>
+                            <button onClick={newCard}>
+                                Click here to start adding new card
+                            </button>
                         </div>
-                        <div className="flashcard">
-                            <p>Back side</p>
-                            <textarea
-                                name="back"
-                                className="editCard"
-                                onChange={handleChange}
-                            ></textarea>
+                        {status.showEditMode && (
+                            <div className="overlay">
+                                <p onClick={closeNewCard}>X</p>
+                                <div className="flashcard">
+                                    <p>Front side</p>
+                                    <textarea
+                                        name="front"
+                                        id="cardText1"
+                                        className="editCard"
+                                        onChange={handleChange}
+                                    ></textarea>
+                                </div>
+                                <div className="flashcard">
+                                    <p>Back side</p>
+                                    <textarea
+                                        name="back"
+                                        id="cardText2"
+                                        className="editCard"
+                                        onChange={handleChange}
+                                    ></textarea>
+                                </div>
+                                <button onClick={editCard}>
+                                    Add Card to the Deck
+                                </button>
+                            </div>
+                        )}
+                        <div className="cardGrid">
+                            {allCards &&
+                                allCards.map((card) => {
+                                    return (
+                                        <section key={card.id}>
+                                            {" "}
+                                            <div className="CardBox">
+                                                <div>
+                                                    <p>{card.front}</p>
+                                                </div>
+                                                <div>
+                                                    <p>{card.back}</p>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    );
+                                })}{" "}
                         </div>
-                        <button onClick={editCard}>
-                            Confirm name of the deck
-                        </button>
                     </section>
                 </div>
             )}
@@ -185,6 +261,12 @@ export default function addCards() {
                 // )}
                 <section>
                     {" "}
+                    <div>
+                        <p onClick={backToDecks}>
+                            Would like to go back to the Overview of Decks?
+                        </p>
+                    </div>
+                    <p>Your right now in Deck {deckvalue.deckname}</p>
                     <p>
                         You have no Cards yet would you like to add a new card
                     </p>
@@ -192,6 +274,7 @@ export default function addCards() {
                         <p>Front side</p>
                         <textarea
                             name="front"
+                            id="cardText3"
                             className="editCard"
                             onChange={handleChange}
                         ></textarea>
@@ -200,6 +283,7 @@ export default function addCards() {
                         <p>Back side</p>
                         <textarea
                             name="back"
+                            id="cardText4"
                             className="editCard"
                             onChange={handleChange}
                         ></textarea>

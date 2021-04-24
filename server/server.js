@@ -22,9 +22,11 @@ const {
     postNewDeck,
     getDeckNames,
     getAllDecks,
+    getOneDeck,
     getAllCards,
     addNewCard,
 } = require("./sql/db");
+const { shuffleArray } = require("./functions");
 
 //Middleware
 app.use(compression());
@@ -168,6 +170,15 @@ app.get("/getdecks", (req, res) => {
     });
 });
 
+app.get("/deckname/:deckid", (req, res) => {
+    console.log("I am in deckname");
+    console.log("deckname", req.params.deckid);
+    getOneDeck(req.params.deckid).then((result) => {
+        console.log("deckname", result.rows);
+        res.json(result.rows);
+    });
+});
+
 app.get("/getcards/:deckid", (req, res) => {
     console.log("getCards", req.body);
     console.log("deckid for getcards", req.params.deckid);
@@ -192,6 +203,23 @@ app.post("/addcard", (req, res) => {
         .catch((err) => {
             console.log("data in addcard error: ", err);
         });
+});
+
+app.get("/getmemorycards/:deckid", (req, res) => {
+    console.log("getMemoryCards", req.body);
+    console.log("deckid for memorycards", req.params.deckid);
+    if (req.params.deckid == null) {
+        res.json({ firstCreateDeck: true });
+    }
+    getAllCards(req.params.deckid).then((result) => {
+        console.log("result getmemorycards", result.rows);
+        var memorycards = result.rows;
+        shuffleArray(memorycards);
+        console.log("memorycards after shuffle", memorycards);
+        var slicedMemoryCards = memorycards.slice(0, 10);
+        console.log("slicedMemoryCards", slicedMemoryCards);
+        res.json(slicedMemoryCards);
+    });
 });
 
 app.get("*", function (req, res) {
