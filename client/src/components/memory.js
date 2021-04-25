@@ -12,9 +12,15 @@ export default function Memory() {
     const [deckvalue, setDeckValue] = useState({});
     const [cardvalue, setCardValue] = useState({});
     const [status, setStatus] = useState({});
+    const [memory, setMemory] = useState({});
+    var divArray = [];
+    var matchArray = [];
+    var matchedDivs = [];
+    var matchedCounter = 0;
     // console.log("memory", alldecks);
     // console.log("allCards Memory Lane", allCards);
     console.log("memoryCards", memoryCards);
+    console.log("matchedDivs", matchedDivs);
 
     useEffect(() => {
         console.log(" am in allcards too early");
@@ -58,6 +64,7 @@ export default function Memory() {
     }, [status.chosendeck]);
 
     const handleClick = (e) => {
+        console.log("deck dataset", e.target.dataset);
         if (e.target.dataset.deckid) {
             setDeckValue({
                 ...deckvalue,
@@ -74,6 +81,85 @@ export default function Memory() {
             });
         }
     };
+
+    const clickCard = (e) => {
+        console.log("e.target", e.target.dataset.cardid);
+        if (divArray.length == 2) {
+            console.log("you shouldn't do anything");
+        } else {
+            e.target.classList.add("open");
+            e.target.classList.add("disabled");
+            matchArray.push(e.target.dataset.cardid);
+            console.log("matchArray", matchArray);
+            divArray.push(e.target);
+
+            if (divArray.length == 2) {
+                if (matchArray[0] == matchArray[1]) {
+                    matched();
+                } else {
+                    unmatched();
+                }
+            }
+        }
+    };
+
+    const matched = () => {
+        console.log("We have matched something");
+
+        for (var i = 0; i < divArray.length; i++) {
+            matchedDivs.push(divArray[i]);
+        }
+
+        console.log("matchedDivs", matchedDivs);
+        setTimeout(() => {
+            for (var i = 0; i < divArray.length; i++) {
+                divArray[i].classList.remove("open");
+                divArray[i].classList.add("solved");
+            }
+            divArray = [];
+            matchArray = [];
+            matchedCounter += 1;
+            if (matchedCounter == 2) {
+                winning();
+            }
+        }, 1500);
+    };
+
+    const unmatched = () => {
+        console.log("we have two divs");
+        setTimeout(() => {
+            for (var i = 0; i < divArray.length; i++) {
+                divArray[i].classList.remove("open");
+                divArray[i].classList.remove("disabled");
+            }
+            divArray = [];
+            matchArray = [];
+        }, 1500);
+    };
+
+    const winning = () => {
+        console.log("Wow you've won");
+        setStatus({
+            ...status,
+            won: true,
+        });
+    };
+    const rematch = () => {
+        setStatus({
+            ...status,
+            won: false,
+        });
+        console.log("matchedDivs rematch", matchedDivs);
+        for (var i = 0; i < matchedDivs.length; i++) {
+            matchedDivs[i].classList.remove("solved");
+
+            matchedDivs[i].classList.remove("disabled");
+            console.log("matchedDivs", matchedDivs[i]);
+        }
+        // matchedDivs = [];
+        // dispatch(getMemoryCards(deckvalue.deckid));
+    };
+
     return (
         <div>
             <p>Wow I am in the memory</p>
@@ -101,19 +187,34 @@ export default function Memory() {
                         {memoryCards &&
                             memoryCards.map((card) => {
                                 return (
-                                    <section key={card.id}>
-                                        {" "}
-                                        <div className="CardBox">
-                                            <div>
-                                                <p>{card.front}</p>
-                                            </div>
-                                            <div>
-                                                <p>{card.back}</p>
-                                            </div>
-                                        </div>
-                                    </section>
+                                    <div
+                                        className="CardBox"
+                                        key={card.keyID}
+                                        onClick={clickCard}
+                                        data-keyid={card.keyID}
+                                        data-cardid={card.id}
+                                    >
+                                        <p>{card.front}</p>
+                                        <p>{card.back}</p>
+                                        {/* <div
+                                            className="backSide"
+                                            // onClick={clickCard}
+                                            // data-keyid={card.keyID}
+                                            // data-cardid={card.id}
+                                        > */}
+                                        {/* </div> */}
+                                    </div>
                                 );
                             })}
+                    </div>
+                </div>
+            )}
+            {status.won && (
+                <div className="overlay">
+                    <div className="WinnerCard">
+                        {" "}
+                        <p>You have won would you like a rematch?</p>
+                        <button onClick={rematch}>Rematch</button>
                     </div>
                 </div>
             )}

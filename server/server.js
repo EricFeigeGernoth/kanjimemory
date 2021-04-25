@@ -212,13 +212,23 @@ app.get("/getmemorycards/:deckid", (req, res) => {
         res.json({ firstCreateDeck: true });
     }
     getAllCards(req.params.deckid).then((result) => {
-        console.log("result getmemorycards", result.rows);
         var memorycards = result.rows;
         shuffleArray(memorycards);
-        console.log("memorycards after shuffle", memorycards);
-        var slicedMemoryCards = memorycards.slice(0, 10);
-        console.log("slicedMemoryCards", slicedMemoryCards);
-        res.json(slicedMemoryCards);
+
+        var slicedMemoryCards = memorycards.slice(0, 2);
+
+        var splitMemoryCards = [];
+        for (var i = 0; i < slicedMemoryCards.length; i++) {
+            const { id, front, back } = slicedMemoryCards[i];
+            let frontSide = { id, front, keyID: i };
+            let backSide = { id, back, keyID: i + slicedMemoryCards.length };
+
+            splitMemoryCards.push(frontSide, backSide);
+        }
+        // console.log("splitMemoryCards", splitMemoryCards);
+        shuffleArray(splitMemoryCards);
+        console.log("twicedShuffledCards", splitMemoryCards);
+        res.json(splitMemoryCards);
     });
 });
 

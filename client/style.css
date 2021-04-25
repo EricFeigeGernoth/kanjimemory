@@ -34,21 +34,6 @@ body {
     grid-row-gap: 30px;
     grid-column-gap: 40px;
 }
-
-.cardGrid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 0.3fr);
-    grid-template-rows: repeat(auto-fill, 105px);
-    grid-row-gap: 30px;
-    grid-column-gap: 40px;
-}
-
-.CardBox {
-    height: 100px;
-    width: 80px;
-    background-color: cadetblue;
-}
 .overlay {
     position: absolute;
     top: 0%;
@@ -62,4 +47,63 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.cardGrid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 0.3fr);
+    grid-template-rows: repeat(auto-fill, 250px);
+    grid-row-gap: 80px;
+    grid-column-gap: 50px;
+}
+
+.CardBox {
+    height: 300px;
+    width: 180px;
+    background: #141214;
+    font-size: 0;
+    color: #ffffff;
+}
+
+.CardBox.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    font-size: large;
+    cursor: default;
+    animation-name: flipInY;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: 0.75s;
+}
+
+.CardBox.solved {
+    font-size: 0;
+    background-color: white;
+}
+
+.CardBox.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* .frontSide {
+    height: 300px;
+    width: 180px;
+    z-index: 10000;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    background-color: black;
+} */
+/* .frontSide.flip {
+    transform: rotateY(180deg);
+} */
+.backSide {
+    height: 320px;
+    width: 180px;
+}
+
+.WinnerCard {
+    height: 200px;
+    width: 200px;
+    background-color: white;
 }
