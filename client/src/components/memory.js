@@ -21,17 +21,20 @@ export default function Memory() {
     // console.log("allCards Memory Lane", allCards);
     console.log("memoryCards", memoryCards);
     console.log("matchedDivs", matchedDivs);
+    console.log("status", status);
 
     useEffect(() => {
         console.log(" am in allcards too early");
         if (memoryCards == undefined || memoryCards.length == 0) {
             console.log("Wow no memoryCards here yet");
         } else {
-            console.log("memoryCards ind addcards.js", memoryCards);
-            setStatus({
-                ...status,
-                memorySet: true,
-            });
+            if (status && status.chosendeck) {
+                console.log("memoryCards ind addcards.js", memoryCards);
+                setStatus({
+                    ...status,
+                    memorySet: true,
+                });
+            }
         }
     }, [memoryCards]);
 
@@ -46,24 +49,25 @@ export default function Memory() {
 
     useEffect(() => {
         console.log("Wow I am the chosen one");
-        console.log("deckid", deckvalue.deckid);
+        // console.log("deckid", deckvalue.deckid);
         if (deckvalue && deckvalue.deckid) {
             console.log("inside the if clause");
             let deckid = deckvalue.deckid;
             axios.get(`/deckname/${deckid}`).then((result) => {
-                console.log("deckname hello", result.data[0]);
+                // console.log("deckname hello", result.data[0]);
                 setDeckValue({
                     ...deckvalue,
                     deckname: result.data[0].deckname,
                 });
-                console.log("deckvalue", deckvalue);
-                console.log("memory memory memory deckid?", deckid);
+                // console.log("deckvalue", deckvalue);
+                // console.log("memory memory memory deckid?", deckid);
                 dispatch(getMemoryCards(deckid));
             });
         }
     }, [status.chosendeck]);
 
     const handleClick = (e) => {
+        console.log("Am I in the handleclick?");
         console.log("deck dataset", e.target.dataset);
         if (e.target.dataset.deckid) {
             setDeckValue({
@@ -83,9 +87,9 @@ export default function Memory() {
     };
 
     const clickCard = (e) => {
-        console.log("e.target", e.target.dataset.cardid);
+        // console.log("e.target", e.target.dataset.cardid);
         if (divArray.length == 2) {
-            console.log("you shouldn't do anything");
+            // console.log("you shouldn't do anything");
         } else {
             e.target.classList.add("open");
             e.target.classList.add("disabled");
@@ -120,6 +124,11 @@ export default function Memory() {
             matchArray = [];
             matchedCounter += 1;
             if (matchedCounter == 2) {
+                setMemory({
+                    ...memory,
+                    allMatches: [...matchedDivs],
+                });
+                console.log("memory.allMatches", memory.allMatches);
                 winning();
             }
         }, 1500);
@@ -139,6 +148,7 @@ export default function Memory() {
 
     const winning = () => {
         console.log("Wow you've won");
+        console.log("memory.allMatches", memory.allMatches);
         setStatus({
             ...status,
             won: true,
@@ -149,15 +159,36 @@ export default function Memory() {
             ...status,
             won: false,
         });
+        console.log("memory.allMatches rematch", memory.allMatches);
         console.log("matchedDivs rematch", matchedDivs);
-        for (var i = 0; i < matchedDivs.length; i++) {
-            matchedDivs[i].classList.remove("solved");
+        for (var i = 0; i < memory.allMatches.length; i++) {
+            memory.allMatches[i].classList.remove("solved");
 
-            matchedDivs[i].classList.remove("disabled");
-            console.log("matchedDivs", matchedDivs[i]);
+            memory.allMatches[i].classList.remove("disabled");
+            console.log("memory.allMatches", memory.allMatches[i]);
         }
-        // matchedDivs = [];
+        memory.allMatches = [];
+        dispatch(getMemoryCards(deckvalue.deckid));
+    };
+
+    const back = () => {
+        console.log("memory.allMatches rematch", memory.allMatches);
+        console.log("matchedDivs rematch", matchedDivs);
+        for (var i = 0; i < memory.allMatches.length; i++) {
+            memory.allMatches[i].classList.remove("solved");
+
+            memory.allMatches[i].classList.remove("disabled");
+            console.log("memory.allMatches", memory.allMatches[i]);
+        }
+        memory.allMatches = [];
         // dispatch(getMemoryCards(deckvalue.deckid));
+        setStatus({
+            ...status,
+            won: false,
+            memorySet: false,
+            chosendeck: false,
+            overview: true,
+        });
     };
 
     return (
@@ -214,6 +245,7 @@ export default function Memory() {
                     <div className="WinnerCard">
                         {" "}
                         <p>You have won would you like a rematch?</p>
+                        <button onClick={back}>Back to Decks</button>
                         <button onClick={rematch}>Rematch</button>
                     </div>
                 </div>

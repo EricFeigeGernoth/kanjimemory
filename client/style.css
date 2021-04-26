@@ -48,6 +48,22 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.secondoverlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 123413;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .cardGrid {
     width: 80%;
     display: grid;
@@ -55,6 +71,12 @@ body {
     grid-template-rows: repeat(auto-fill, 250px);
     grid-row-gap: 80px;
     grid-column-gap: 50px;
+}
+
+.addCardBox {
+    height: 300px;
+    width: 180px;
+    border: 2px solid black;
 }
 
 .CardBox {

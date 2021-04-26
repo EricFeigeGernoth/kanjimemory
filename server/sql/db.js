@@ -55,3 +55,11 @@ module.exports.addNewCard = function (id, front, back) {
         [id, front, back]
     );
 };
+
+module.exports.editOldCard = function (id, front, back) {
+    console.log(" I am in editOldCard");
+    return db.query(
+        `UPDATE cards SET front = $2, back = $3 WHERE id = $1 RETURNING front, back, id, decknumber;`,
+        [id, front, back]
+    );
+};

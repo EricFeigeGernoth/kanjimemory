@@ -25,6 +25,7 @@ const {
     getOneDeck,
     getAllCards,
     addNewCard,
+    editOldCard,
 } = require("./sql/db");
 const { shuffleArray } = require("./functions");
 
@@ -187,7 +188,10 @@ app.get("/getcards/:deckid", (req, res) => {
     }
     getAllCards(req.params.deckid).then((result) => {
         console.log("result getCards", result);
-        res.json(result.rows);
+        var orderedlist = result.rows.sort(function (a, b) {
+            return a.id - b.id;
+        });
+        res.json(orderedlist);
     });
 });
 
@@ -203,6 +207,16 @@ app.post("/addcard", (req, res) => {
         .catch((err) => {
             console.log("data in addcard error: ", err);
         });
+});
+
+app.post("/editcard", (req, res) => {
+    console.log("edicard req.body", req.body);
+    const { deckid, editid, front, back } = req.body;
+
+    editOldCard(editid, front, back).then((data) => {
+        console.log(data.rows);
+        res.json(data.rows);
+    });
 });
 
 app.get("/getmemorycards/:deckid", (req, res) => {

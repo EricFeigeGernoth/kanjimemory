@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "../axios";
-import { addDeck } from "../actions";
+import { addDeck, getAllDecks } from "../actions";
+import { BrowserRouter, Link, Route } from "react-router-dom";
+import addCards from "./addcards";
 export default function DeckCreator() {
     const dispatch = useDispatch();
     const [values, setValues] = useState({});
@@ -40,6 +42,7 @@ export default function DeckCreator() {
                     noDeck: false,
                     newDeck: true,
                 });
+                dispatch(getAllDecks());
             }
             if (result.data && result.data.duplicateDeck) {
                 setStatus({
@@ -95,20 +98,24 @@ export default function DeckCreator() {
                 <section>
                     {" "}
                     <p>
-                        You already have a deck would you like to input a new
-                        card?
+                        Thanks for creating a deck. Would you like to see your
+                        new Deck?
                     </p>
-                    <div className="flashcard">
-                        <p>Front side</p>
-                        <textarea name="front" className="editCard"></textarea>
+                    <div className="input">
+                        <input
+                            type="text"
+                            name="deck"
+                            placeholder="deck"
+                            // onChange={(e) => this.handleChange(e)}
+                            onChange={handleChange}
+                        ></input>
+                        <button onClick={handleClick}>
+                            Confirm name of the deck
+                        </button>
                     </div>
-                    <div className="flashcard">
-                        <p>Back side</p>
-                        <textarea name="back" className="editCard"></textarea>
-                    </div>
-                    <button onClick={handleClick}>
-                        Confirm name of the deck
-                    </button>
+                    {/* <BrowserRouter>
+                        <Route exact path="/addcarts" component={addCards} />
+                    </BrowserRouter> */}
                 </section>
             )}
 

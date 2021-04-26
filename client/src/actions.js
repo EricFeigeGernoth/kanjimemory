@@ -61,6 +61,10 @@ export function getAllCards(deckid) {
         });
 }
 
+export function updateCard() {
+    return {};
+}
+
 export function getMemoryCards(deckid) {
     console.log("Memory Cards");
     console.log("deckid getAllcards", deckid);
