@@ -113,9 +113,6 @@ export default function DeckCreator() {
                             Confirm name of the deck
                         </button>
                     </div>
-                    {/* <BrowserRouter>
-                        <Route exact path="/addcarts" component={addCards} />
-                    </BrowserRouter> */}
                 </section>
             )}
 

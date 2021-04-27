@@ -10,10 +10,10 @@ export default function addCards() {
     const [cardvalue, setCardValue] = useState({});
     const [deckvalue, setDeckValue] = useState({});
     const [status, setStatus] = useState({});
-    console.log("deckvalue", deckvalue);
+    // console.log("deckvalue", deckvalue);
 
     useEffect(() => {
-        console.log(" am in allcards too early");
+        // console.log(" am in allcards too early");
         if (allCards == undefined || allCards.length == 0) {
             setStatus({
                 ...status,
@@ -21,7 +21,7 @@ export default function addCards() {
                 yescards: false,
             });
         } else {
-            console.log("allCards ind addcards.js", allCards);
+            // console.log("allCards ind addcards.js", allCards);
             setStatus({
                 ...status,
                 noCards: false,
@@ -32,9 +32,9 @@ export default function addCards() {
 
     //use EFFECT for showing ALLDECKS
     useEffect(() => {
-        console.log("alldecks", alldecks);
+        // console.log("alldecks", alldecks);
         if (alldecks == undefined || alldecks.length == 0) {
-            console.log("I am here no Decks in sight");
+            // console.log("I am here no Decks in sight");
             setStatus({
                 ...status,
                 overview: false,
@@ -43,7 +43,8 @@ export default function addCards() {
                 yescards: false,
             });
         } else {
-            console.log("Decks have arrived");
+            // console.log("Decks have arrived");
+
             setStatus({
                 ...status,
                 overview: true,
@@ -56,19 +57,19 @@ export default function addCards() {
 
     //use EFFECT for choosing a specific Deck
     useEffect(() => {
-        console.log("Wow I am the chosen one");
-        console.log("deckid", deckvalue.deckid);
+        // console.log("Wow I am the chosen one");
+        // console.log("deckid", deckvalue.deckid);
         if (deckvalue && deckvalue.deckid) {
-            console.log("inside the if clause");
+            // console.log("inside the if clause");
             let deckid = deckvalue.deckid;
             axios.get(`/deckname/${deckid}`).then((result) => {
-                console.log("deckname hello", result.data[0]);
+                // console.log("deckname hello", result.data[0]);
                 setDeckValue({
                     ...deckvalue,
                     deckname: result.data[0].deckname,
                 });
-                console.log("deckvalue", deckvalue);
-                console.log("deckid still deckid?", deckid);
+                // console.log("deckvalue", deckvalue);
+                // console.log("deckid still deckid?", deckid);
                 dispatch(getAllCards(deckid));
             });
         }
@@ -98,13 +99,19 @@ export default function addCards() {
             ...cardvalue,
             [e.target.name]: e.target.value,
         });
+        setStatus({
+            ...status,
+            [e.target.name]: e.target.value,
+        });
+        console.log(status);
+        console.log(cardvalue);
     };
 
     const editCard = () => {
         console.log("hello");
         axios.post("/addcard", cardvalue).then((result) => {
-            console.log("editCard", result);
-            console.log("I am here having added a new card");
+            // console.log("editCard", result);
+            // console.log("I am here having added a new card");
             setStatus({
                 ...status,
                 yescards: true,
@@ -138,10 +145,10 @@ export default function addCards() {
             noCards: false,
             overview: true,
         });
-        console.log("backtodeck");
-        console.log("deckid", deckvalue.deckid);
+        // console.log("backtodeck");
+        // console.log("deckid", deckvalue.deckid);
         deckvalue.deckid = null;
-        console.log("deckvalue", deckvalue);
+        // console.log("deckvalue", deckvalue);
     };
 
     function clearText() {
@@ -152,11 +159,12 @@ export default function addCards() {
     //////////////////EDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARD
     //////////////////EDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARD
     //////////////////EDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARD
-    const clickCard = (e) => {
+    const clickCard = (card) => {
         console.log(" I am in clickCard");
-        console.log(e.target);
-        console.log(e.target.dataset.cardid);
-        let cardid = e.target.dataset.cardid;
+        console.log("console log card", card);
+        // console.log(e.target);
+        // console.log(e.target.dataset.cardid);
+        let cardid = card.id;
         console.log("this is cardid defined", cardid);
         setCardValue({
             ...cardvalue,
@@ -167,22 +175,37 @@ export default function addCards() {
         setStatus({
             ...status,
             editOld: true,
+            front: card.front,
+            back: card.back,
+            editId: card.id,
         });
+        console.log("status clickCard!!!!!!!!!!", status);
     };
 
     const updateOldCard = () => {
-        console.log("updtate old card");
-        console.log("update old card cardvalue", cardvalue);
-        console.log(cardvalue.editid);
-        axios.post("/editcard", cardvalue).then((result) => {
-            console.log(
-                "editcard wow here is the information of the edited card",
-                result.data[0]
-            );
-            console.log("I am here having added a new card");
-            dispatch(getAllCards(deckvalue.deckid));
+        // console.log("updtate old card");
+        // console.log("update old card cardvalue", cardvalue);
+        // console.log("cardvalue", cardvalue.editid);
+        console.log("updateOldCard Object to pass", {
+            editid: status.editId,
+            front: status.front,
+            back: status.back,
         });
-        // clearText();
+        axios
+            .post("/editcard", {
+                editid: status.editId,
+                front: status.front,
+                back: status.back,
+            })
+            .then((result) => {
+                console.log(
+                    "editcard wow here is the information of the edited card",
+                    result.data[0]
+                );
+                console.log("I am here having added a new card");
+                clearText();
+                dispatch(getAllCards(deckvalue.deckid));
+            });
     };
     const closeOldEditCard = () => {
         setStatus({
@@ -196,24 +219,45 @@ export default function addCards() {
     //////////////////EDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARD
     //////////////////EDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARDEDITOLDCARD
     return (
-        <div>
-            <p>Adding Cards</p>
+        <div className="addCardsjsRenderDiv">
             {status.overview && (
-                <div className="deckGrid">
-                    {alldecks &&
-                        alldecks.map((deck) => {
-                            return (
-                                <div
-                                    className="deckPicture"
-                                    key={deck.id}
-                                    onClick={handleClick}
-                                    value={deck.id}
-                                    data-deckid={deck.id}
-                                >
-                                    <p data-deckid={deck.id}>{deck.deckname}</p>
-                                </div>
-                            );
-                        })}
+                <div>
+                    <div className="titleContainer">
+                        <p className="title1">
+                            Please choose a deck by clicking on the deck
+                        </p>
+                    </div>
+
+                    <div className="deckFlex">
+                        <div className="deckGrid">
+                            {alldecks &&
+                                alldecks.map((deck) => {
+                                    return (
+                                        <div
+                                            className="deckPicture"
+                                            key={deck.id}
+                                            onClick={handleClick}
+                                            value={deck.id}
+                                            data-deckid={deck.id}
+                                        >
+                                            <p
+                                                data-deckid={deck.id}
+                                                className="deckTitle"
+                                            >
+                                                {deck.deckname}
+                                            </p>
+                                            <img
+                                                src="open-book.png"
+                                                className="deckIcon"
+                                                onClick={handleClick}
+                                                value={deck.id}
+                                                data-deckid={deck.id}
+                                            ></img>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                    </div>
                 </div>
             )}
             {status.firstCreateDeck && (
@@ -231,126 +275,149 @@ export default function addCards() {
             {status.yescards && (
                 <div>
                     <section>
-                        {" "}
                         <div>
-                            {" "}
-                            <div>
-                                <p onClick={backToDecks}>
-                                    Would like to go back to the Overview of
-                                    Decks?
+                            <div className="cardsOption">
+                                <div className="backButtonDiv">
+                                    <p
+                                        onClick={backToDecks}
+                                        className="backButton"
+                                    >
+                                        Back
+                                    </p>
+                                </div>
+                                <div className="nameOfTheDeckDiv">
+                                    <p className="nameOfTheDeck">
+                                        {/* Deck:<br></br> */}
+                                        {deckvalue.deckname}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="titleContainer">
+                                <p className="title1">
+                                    Yes you have a card! Would you like to add a
+                                    new one?
                                 </p>
                             </div>
-                            <p>
-                                Your right now in Deck
-                                {deckvalue.deckname}
-                            </p>
-                            <p>
-                                Yes you have a card! Would you like to add a new
-                                one?
-                            </p>
-                            <button onClick={newCard}>
-                                Click here to start adding new card
-                            </button>
+                            <div className="newCardButtonDiv">
+                                <button
+                                    onClick={newCard}
+                                    className="buttonPushable"
+                                >
+                                    <span className="buttonFront">
+                                        Add new card
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                         {status.showEditMode && (
                             <div className="overlay">
-                                <p onClick={closeNewCard}>X</p>
-                                <div className="flashcard">
-                                    <p>Front side</p>
-                                    <textarea
-                                        name="front"
-                                        id="cardText1"
-                                        className="editCard"
-                                        onChange={handleChange}
-                                    ></textarea>
+                                <div className="whiteScreen">
+                                    <div className="exitDiv">
+                                        <p
+                                            onClick={closeNewCard}
+                                            className="exitCardEdit"
+                                        >
+                                            Exit
+                                        </p>
+                                    </div>
+                                    <div className="rowFlashCards">
+                                        <div className="flashcard">
+                                            <p className="title1">Front side</p>
+                                            <textarea
+                                                name="front"
+                                                id="cardText1"
+                                                className="editCard"
+                                                onChange={handleChange}
+                                            ></textarea>
+                                        </div>
+                                        <div className="flashcard">
+                                            <p className="title1">Back side</p>
+                                            <textarea
+                                                name="back"
+                                                id="cardText2"
+                                                className="editCard"
+                                                onChange={handleChange}
+                                            ></textarea>
+                                        </div>
+                                    </div>
+
+                                    <button
+                                        onClick={editCard}
+                                        className="buttonPushable"
+                                    >
+                                        <span className="buttonFront">
+                                            Add Card to the Deck
+                                        </span>
+                                    </button>
                                 </div>
-                                <div className="flashcard">
-                                    <p>Back side</p>
-                                    <textarea
-                                        name="back"
-                                        id="cardText2"
-                                        className="editCard"
-                                        onChange={handleChange}
-                                    ></textarea>
-                                </div>
-                                <button onClick={editCard}>
-                                    Add Card to the Deck
-                                </button>
                             </div>
                         )}
-                        <div className="cardGrid">
-                            {allCards &&
-                                allCards.map((card) => {
-                                    return (
-                                        <div
-                                            key={card.id}
-                                            // data-cardid={card.id}
-                                        >
+                        <div className="cardFlex">
+                            <div className="cardGrid">
+                                {allCards &&
+                                    allCards.map((card) => {
+                                        return (
                                             <div
-                                                className="addCardBox"
-                                                data-cardid={card.id}
-                                                onClick={clickCard}
+                                                key={card.id}
+                                                // data-cardid={card.id}
                                             >
-                                                <div>
-                                                    <p>{card.front}</p>
-                                                </div>
-                                                <div>
-                                                    <p>{card.back}</p>
-                                                </div>
-                                            </div>
-                                            {status.editOld && (
-                                                <div>
-                                                    <div className="secondoverlay">
-                                                        <div>
-                                                            <p
-                                                                onClick={
-                                                                    closeOldEditCard
-                                                                }
-                                                            >
-                                                                X
-                                                            </p>
-                                                        </div>
-                                                        <div className="flashcard">
-                                                            <p>Front side</p>
-                                                            <textarea
-                                                                name="front"
-                                                                id="cardText1"
-                                                                className="editCard"
-                                                                defaultValue={
-                                                                    card.front
-                                                                }
-                                                                onChange={
-                                                                    handleChange
-                                                                }
-                                                            ></textarea>
-                                                        </div>
-                                                        <div className="flashcard">
-                                                            <p>Back side</p>
-                                                            <textarea
-                                                                name="back"
-                                                                id="cardText2"
-                                                                className="editCard"
-                                                                defaultValue={
-                                                                    card.back
-                                                                }
-                                                                onChange={
-                                                                    handleChange
-                                                                }
-                                                            ></textarea>
-                                                        </div>
-                                                        <button
-                                                            onClick={
-                                                                updateOldCard
-                                                            }
-                                                        >
-                                                            Update old card
-                                                        </button>
+                                                <div
+                                                    className="addCardBox"
+                                                    data-cardid={card.id}
+                                                    onClick={() =>
+                                                        clickCard(card)
+                                                    }
+                                                >
+                                                    <div className="cardFrontDiv">
+                                                        <p className="cardFront">
+                                                            {card.front}
+                                                        </p>
+                                                    </div>
+                                                    <div className="cardBackDiv">
+                                                        <p className="cardBack">
+                                                            {card.back}
+                                                        </p>
                                                     </div>
                                                 </div>
-                                            )}
+                                            </div>
+                                        );
+                                    })}
+                                {status.editOld && (
+                                    <div>
+                                        <div className="secondoverlay">
+                                            <div>
+                                                <p onClick={closeOldEditCard}>
+                                                    X
+                                                </p>
+                                            </div>
+                                            <div className="flashcard">
+                                                <p>Front side</p>
+                                                <textarea
+                                                    name="front"
+                                                    id="cardText1"
+                                                    className="editCard"
+                                                    defaultValue={status.front}
+                                                    onChange={handleChange}
+                                                ></textarea>
+                                            </div>
+                                            <div className="flashcard">
+                                                <p>Back side</p>
+                                                <textarea
+                                                    name="back"
+                                                    id="cardText2"
+                                                    className="editCard"
+                                                    defaultValue={status.back}
+                                                    onChange={handleChange}
+                                                ></textarea>
+                                            </div>
+                                            <button onClick={updateOldCard}>
+                                                Update old card
+                                            </button>
                                         </div>
-                                    );
-                                })}
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </section>
                 </div>

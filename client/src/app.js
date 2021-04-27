@@ -4,15 +4,7 @@ import axios from "./axios";
 
 import { BrowserRouter, Link, Route } from "react-router-dom";
 
-// Those are from named exports, it will look differently if you have default exports ;)
-// import Logo from "./components/logo";
-// import ProfilePic from "./components/profile-pic.js";
-// import { Uploader } from "./components/uploader.js";
-// import Profile from "./components/profile.js";
-// import OtherProfile from "./components/otherprofile";
-// import FindPeople from "./components/findpeople";
-// import Friends from "./components/friends";
-// import Chat from "./components/chat";
+import Logo from "./components/logo";
 import Landing from "./components/landing";
 import DeckCreator from "./components/deckcreator";
 import addCards from "./components/addcards";
@@ -38,7 +30,13 @@ export class App extends Component {
     //         // ...
     //     });
     // }
-
+    logOut() {
+        console.log("this function");
+        axios.get("logout").then(() => {
+            console.log("I am in logOut");
+            // location.replace("/");
+        });
+    }
     // Method to update the profilePic state after upload. To be passed down to <Uploader />
 
     render() {
@@ -47,22 +45,64 @@ export class App extends Component {
                 {" "}
                 <BrowserRouter>
                     <div className="navBar">
-                        <Link to="/">
-                            {" "}
-                            <p>Landing</p>
-                        </Link>
-                        <Link to="/deckcreator">
-                            {" "}
-                            <p>Create Deck</p>
-                        </Link>
-                        <Link to="/addcarts">
-                            {" "}
-                            <p>Add Cards to your deck</p>
-                        </Link>
-                        <Link to="/memory">
-                            {" "}
-                            <p>Start the Memory</p>
-                        </Link>
+                        <div className="navLogo">
+                            <Logo />
+                        </div>
+                        <div className="navRow">
+                            <Link to="/" style={{ textDecoration: "none" }}>
+                                {" "}
+                                <div className="navBarComponent">
+                                    <p className="navBarTitles">Start</p>
+                                    <img
+                                        src="start-line.png"
+                                        className="icon"
+                                    ></img>
+                                </div>
+                            </Link>
+                            <Link
+                                to="/deckcreator"
+                                style={{ textDecoration: "none" }}
+                            >
+                                <div className="navBarComponent">
+                                    <p className="navBarTitles">Create Deck</p>
+                                    <img src="book.png" className="icon"></img>
+                                </div>
+                            </Link>
+                            <Link
+                                to="/addcarts"
+                                style={{ textDecoration: "none" }}
+                            >
+                                <div className="navBarComponent">
+                                    <p className="navBarTitles">Add Cards</p>
+                                    <img
+                                        src="contract.png"
+                                        className="icon"
+                                    ></img>
+                                </div>
+                            </Link>
+                            <Link
+                                to="/memory"
+                                style={{ textDecoration: "none" }}
+                            >
+                                <div className="navBarComponent">
+                                    <p className="navBarTitles">Memory</p>
+                                    <img
+                                        src="memory.png"
+                                        className="icon"
+                                    ></img>
+                                </div>
+                            </Link>
+                            <a
+                                href="/welcome"
+                                onClick={this.logOut}
+                                className="navBarLogOut"
+                            >
+                                <div className="navBarComponent">
+                                    <p className="navBarTitles">Log Out</p>
+                                    <img src="exit.png" className="icon"></img>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                     <div></div>
 
@@ -75,6 +115,7 @@ export class App extends Component {
                         />
                         <Route exact path="/addcarts" component={addCards} />
                         <Route exact path="/memory" component={Memory} />
+
                         {/* <Route path="/findusers" component={FindPeople} />
                         <Route path="/friends" component={Friends} />
                         <Route path="/chat" component={Chat} /> */}

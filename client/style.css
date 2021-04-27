@@ -1,46 +1,305 @@
 body {
     background-color: ghostwhite;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.flashcard {
-    height: 300px;
-    width: 200px;
-    background-color: aqua;
-    border: 2px black solid;
+/* NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR
+NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR
+NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR */
+
+.logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 50px;
+    font-weight: bolder;
+    border: 5px solid black;
+    background-color: #ffe6a7;
 }
 
-.editCard {
-    height: 100px;
-    width: 150px;
-}
-
-.deckPicture {
-    height: 100px;
-    width: 150px;
-    border: 2px black solid;
+.icon {
+    height: 50px;
 }
 
 .navBar {
     display: flex;
     flex-direction: row;
+    justify-content: left;
+    background-color: cadetblue;
+}
+
+.navLogo {
+    margin-left: 30px;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.navRow {
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
 }
 
+.navBarComponent {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 75px;
+    margin-left: 75px;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.navBarTitles {
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: large;
+    font-weight: bolder;
+    color: white;
+    /* border: 2px solid black; */
+}
+
+.navBarLogOut {
+    text-decoration: none;
+    margin-left: 100px;
+}
+
+/* NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR
+NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR
+NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR */
+
+/* DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS
+DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS
+DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS
+DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS */
+
+.addCardsjsRenderDiv {
+    height: 100%;
+
+    margin: 0;
+}
+
+.deckFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .deckGrid {
-    width: 100%;
+    padding: 10px;
+    background-color: ghostwhite;
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(4, 0.3fr);
-    grid-template-rows: repeat(auto-fill, 105px);
+    grid-template-rows: repeat(auto-fill, 250px);
     grid-row-gap: 30px;
     grid-column-gap: 40px;
+    border-radius: 1%;
 }
+.deckPicture {
+    height: 200px;
+    width: 175px;
+    background-color: rosybrown;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    cursor: pointer;
+}
+.titleContainer {
+    /* background-color: rgb(134, 92, 92); */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.title1 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.deckTitle {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.deckIcon {
+    height: 75px;
+}
+
+.deckPicture.deckHighlight {
+    border: 5px greenyellow solid;
+}
+
+/* DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS
+DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS
+DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS
+DECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSSDECKCSS */
+
+/* CARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS
+CARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS
+CARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS
+CARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS */
+
+.cardsOption {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.backButtonDiv {
+    border: 2px solid black;
+    margin-top: 30px;
+    margin-left: 40px;
+    background-color: cadetblue;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+}
+
+.backButton {
+    padding: 10px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: bolder;
+    color: ghostwhite;
+    font-size: large;
+    line-height: 20px;
+    margin: 0;
+}
+.nameOfTheDeckDiv {
+    border: 2px solid black;
+    margin-top: 30px;
+    margin-right: 40px;
+    height: 80px;
+    width: 64px;
+    background-color: rosybrown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+}
+.nameOfTheDeck {
+    padding: 10px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 999;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.newCardButtonDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.newCardButton {
+    padding: 10px;
+    background-color: crimson;
+    color: ghostwhite;
+    border-radius: 25%;
+}
+
+.buttonPushable {
+    background: hsl(340deg 100% 32%);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+.buttonFront {
+    display: block;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    background: hsl(345deg 100% 47%);
+    color: white;
+    transform: translateY(-6px);
+}
+
+.buttonPushable:active .buttonFront {
+    transform: translateY(-2px);
+}
+
+.cardFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.cardGrid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 0.3fr);
+    grid-template-rows: repeat(auto-fill, 303px);
+    grid-row-gap: 80px;
+    grid-column-gap: 50px;
+}
+
+.addCardBox {
+    height: 300px;
+    width: 180px;
+    border: 2px solid black;
+    border-radius: 3%;
+    background-color: #d0dbe6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cardFrontDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cardBackDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardFront {
+    white-space: pre-wrap;
+}
+
+.cardBack {
+    white-space: pre-wrap;
+    padding: 15px;
+}
+
 .overlay {
     position: absolute;
     top: 0%;
     left: 0%;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 150vh;
+    background-color: rgba(0, 0, 0, 0.1);
     z-index: 123413;
     visibility: visible;
     display: flex;
@@ -48,6 +307,60 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.whiteScreen {
+    height: 800px;
+    width: 800px;
+    background-color: rgba(248, 248, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exitDiv {
+    background-color: black;
+    border: gold solid 2px;
+    color: honeydew;
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+.exitCardEdit {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.rowFlashCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flashcard {
+    height: 500px;
+    width: 300px;
+    background-color: #d0dbe6;
+    border: 2px black solid;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.editCard {
+    height: 300px;
+    width: 200px;
+}
+/* ARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS
+CARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS
+CARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS
+CARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSSCARDSCSS */
 
 .secondoverlay {
     position: absolute;
@@ -64,21 +377,6 @@ body {
     align-items: center;
 }
 
-.cardGrid {
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(5, 0.3fr);
-    grid-template-rows: repeat(auto-fill, 250px);
-    grid-row-gap: 80px;
-    grid-column-gap: 50px;
-}
-
-.addCardBox {
-    height: 300px;
-    width: 180px;
-    border: 2px solid black;
-}
-
 .CardBox {
     height: 300px;
     width: 180px;
@@ -87,6 +385,12 @@ body {
     color: #ffffff;
 }
 
+.CardBox.greenHighlight {
+    border: 2px solid greenyellow;
+}
+.CardBox.redHighlight {
+    border: 2px solid red;
+}
 .CardBox.open {
     transform: rotateY(0);
     background: #02b3e4;

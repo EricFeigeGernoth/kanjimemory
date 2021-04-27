@@ -12,16 +12,19 @@ export default function Memory() {
     const [deckvalue, setDeckValue] = useState({});
     const [cardvalue, setCardValue] = useState({});
     const [status, setStatus] = useState({});
+    const [value, setValue] = useState({});
     const [memory, setMemory] = useState({});
     var divArray = [];
     var matchArray = [];
     var matchedDivs = [];
+    var highlightedDecks = [];
     var matchedCounter = 0;
+    var clickCounter = 0;
     // console.log("memory", alldecks);
     // console.log("allCards Memory Lane", allCards);
     console.log("memoryCards", memoryCards);
     console.log("matchedDivs", matchedDivs);
-    console.log("status", status);
+    console.log("value", clickCounter);
 
     useEffect(() => {
         console.log(" am in allcards too early");
@@ -68,7 +71,20 @@ export default function Memory() {
 
     const handleClick = (e) => {
         console.log("Am I in the handleclick?");
-        console.log("deck dataset", e.target.dataset);
+
+        var highlightedElements = document.getElementsByClassName(
+            "deckPicture"
+        );
+        // console.log("highlightedElements", highlightedElements);
+        for (var i = 0; i < highlightedElements.length; i++) {
+            if (
+                highlightedElements[i].dataset.deckid != e.target.dataset.deckid
+            ) {
+                highlightedElements[i].classList.remove("deckHighlight");
+            }
+        }
+        // console.log("highlightedElements", highlightedElements);
+        // console.log("deck dataset", e.target.dataset);
         if (e.target.dataset.deckid) {
             setDeckValue({
                 ...deckvalue,
@@ -78,12 +94,21 @@ export default function Memory() {
                 ...cardvalue,
                 deckid: e.target.dataset.deckid,
             });
-            setStatus({
-                ...status,
-                overview: false,
-                chosendeck: true,
-            });
+            e.target.classList.add("deckHighlight");
+            // setStatus({
+            //     ...status,
+            //     overview: false,
+            //     chosendeck: true,
+            // });
         }
+    };
+
+    const startGame = () => {
+        setStatus({
+            ...status,
+            overview: false,
+            chosendeck: true,
+        });
     };
 
     const clickCard = (e) => {
@@ -112,11 +137,13 @@ export default function Memory() {
 
         for (var i = 0; i < divArray.length; i++) {
             matchedDivs.push(divArray[i]);
+            divArray[i].classList.add("greenHighlight");
         }
 
         console.log("matchedDivs", matchedDivs);
         setTimeout(() => {
             for (var i = 0; i < divArray.length; i++) {
+                divArray[i].classList.remove("greenHighlight");
                 divArray[i].classList.remove("open");
                 divArray[i].classList.add("solved");
             }
@@ -136,8 +163,12 @@ export default function Memory() {
 
     const unmatched = () => {
         console.log("we have two divs");
+        for (var i = 0; i < divArray.length; i++) {
+            divArray[i].classList.add("redHighlight");
+        }
         setTimeout(() => {
             for (var i = 0; i < divArray.length; i++) {
+                divArray[i].classList.remove("redHighlight");
                 divArray[i].classList.remove("open");
                 divArray[i].classList.remove("disabled");
             }
@@ -195,25 +226,31 @@ export default function Memory() {
         <div>
             <p>Wow I am in the memory</p>
             {status.overview && (
-                <div className="deckGrid">
-                    {alldecks &&
-                        alldecks.map((deck) => {
-                            return (
-                                <div
-                                    className="deckPicture"
-                                    key={deck.id}
-                                    onClick={handleClick}
-                                    value={deck.id}
-                                    data-deckid={deck.id}
-                                >
-                                    <p data-deckid={deck.id}>{deck.deckname}</p>
-                                </div>
-                            );
-                        })}
+                <div>
+                    <button onClick={startGame}>Start the Game mate</button>
+                    <div className="deckGrid">
+                        {alldecks &&
+                            alldecks.map((deck) => {
+                                return (
+                                    <div
+                                        className="deckPicture"
+                                        key={deck.id}
+                                        onClick={handleClick}
+                                        value={deck.id}
+                                        data-deckid={deck.id}
+                                    >
+                                        <p data-deckid={deck.id}>
+                                            {deck.deckname}
+                                        </p>
+                                    </div>
+                                );
+                            })}
+                    </div>
                 </div>
             )}
             {status.memorySet && (
                 <div>
+                    {/* <p>{memory.clickCount}</p> */}
                     <div className="cardGrid">
                         {memoryCards &&
                             memoryCards.map((card) => {

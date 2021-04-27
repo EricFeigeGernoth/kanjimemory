@@ -121,15 +121,20 @@ app.post("/login", (req, res) => {
 
 app.get("/landingprofile", (req, res) => {
     console.log("I am in landingprofile");
-    console.log("userId", req.session.userId);
-    getProfile(req.session.userId)
-        .then((data) => {
-            console.log("data from getProfile", data.rows);
-            res.json(data.rows);
-        })
-        .catch((err) => {
-            console.log("data in landingProfile: ", err);
-        });
+    if (req.session.userId == null) {
+        res.redirect("/welcome");
+    } else {
+        console.log("userId", req.session.userId);
+
+        getProfile(req.session.userId)
+            .then((data) => {
+                console.log("data from getProfile", data.rows);
+                res.json(data.rows);
+            })
+            .catch((err) => {
+                console.log("data in landingProfile: ", err);
+            });
+    }
 });
 
 app.post("/newdeck", (req, res) => {
@@ -172,25 +177,26 @@ app.get("/getdecks", (req, res) => {
 });
 
 app.get("/deckname/:deckid", (req, res) => {
-    console.log("I am in deckname");
-    console.log("deckname", req.params.deckid);
+    // console.log("I am in deckname");
+    // console.log("deckname", req.params.deckid);
     getOneDeck(req.params.deckid).then((result) => {
-        console.log("deckname", result.rows);
+        // console.log("deckname", result.rows);
         res.json(result.rows);
     });
 });
 
 app.get("/getcards/:deckid", (req, res) => {
-    console.log("getCards", req.body);
-    console.log("deckid for getcards", req.params.deckid);
+    // console.log("getCards", req.body);
+    // console.log("deckid for getcards", req.params.deckid);
     if (req.params.deckid == null) {
         res.json({ firstCreateDeck: true });
     }
     getAllCards(req.params.deckid).then((result) => {
-        console.log("result getCards", result);
+        // console.log("result getCards", result);
         var orderedlist = result.rows.sort(function (a, b) {
             return a.id - b.id;
         });
+
         res.json(orderedlist);
     });
 });
@@ -244,6 +250,14 @@ app.get("/getmemorycards/:deckid", (req, res) => {
         console.log("twicedShuffledCards", splitMemoryCards);
         res.json(splitMemoryCards);
     });
+});
+
+app.get(`/logout`, function (req, res) {
+    console.log("I am in logout");
+    req.session.userId = null;
+    // console.log("userId", req.session.userId);
+    // console.log("UserId resetted");
+    res.redirect("/welcome");
 });
 
 app.get("*", function (req, res) {
