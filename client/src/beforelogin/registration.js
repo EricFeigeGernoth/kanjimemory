@@ -55,71 +55,78 @@ export default class Registration extends Component {
 
     render() {
         return (
-            <div className="bodyBox">
-                <div className="regLogBox">
-                    <div>
-                        {" "}
-                        <h1 className="mainHeader">LimBUS</h1>
-                    </div>
-
-                    <h1 className="header2">
-                        the fastest connection in the underworld
-                    </h1>
-                    <h1 className="header2">
-                        Stay connected with all your friends across hell
-                    </h1>
-
-                    {this.state.error && (
-                        <p className="error">oops!!! something went wrong!!</p>
-                    )}
-                    <div className="inputFields">
-                        <div className="input">
-                            <input
-                                type="text"
-                                name="first"
-                                placeholder="first"
-                                onChange={(e) => this.handleChange(e)}
-                            ></input>
-                        </div>
-                        <div className="input">
-                            {" "}
-                            <input
-                                type="text"
-                                name="last"
-                                placeholder="last"
-                                onChange={(e) => this.handleChange(e)}
-                            ></input>
-                        </div>
-                        <div className="input">
-                            {" "}
-                            <input
-                                type="text"
-                                name="email"
-                                placeholder="email"
-                                onChange={(e) => this.handleChange(e)}
-                            ></input>
-                        </div>
-                        <div className="input">
-                            {" "}
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="password"
-                                onChange={(e) => this.handleChange(e)}
-                            ></input>
-                        </div>
-                        <div className="button">
-                            {" "}
-                            <button onClick={() => this.handleClick()}>
-                                register
-                            </button>
-                        </div>
-
-                        <Link to="/login">
-                            <p className="subtitle">
-                                Registered already? Step in!
-                            </p>
+            <div>
+                <div className="logRegButt">
+                    <div className="backButtonDiv">
+                        <Link to="/login" style={{ textDecoration: "none" }}>
+                            <p className="backButton">Login!</p>
                         </Link>
+                    </div>
+                </div>
+                <div className="bodyBox">
+                    <div className="regLogBox">
+                        <div className="mainHeaderDiv">
+                            {" "}
+                            <h1 className="mainHeader">Kanjimemory</h1>
+                        </div>
+
+                        <h1 className="logHeader2">
+                            Stay connected with all your friends across hell
+                        </h1>
+
+                        {this.state.error && (
+                            <p className="error">
+                                oops!!! something went wrong!!
+                            </p>
+                        )}
+                        <div className="regInputFields">
+                            <div className="input">
+                                <input
+                                    type="text"
+                                    name="first"
+                                    placeholder="first"
+                                    onChange={(e) => this.handleChange(e)}
+                                ></input>
+                            </div>
+                            <div className="input">
+                                {" "}
+                                <input
+                                    type="text"
+                                    name="last"
+                                    placeholder="last"
+                                    onChange={(e) => this.handleChange(e)}
+                                ></input>
+                            </div>
+                            <div className="input">
+                                {" "}
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder="email"
+                                    onChange={(e) => this.handleChange(e)}
+                                ></input>
+                            </div>
+                            <div className="input">
+                                {" "}
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="password"
+                                    onChange={(e) => this.handleChange(e)}
+                                ></input>
+                            </div>
+                            <div className="button">
+                                {" "}
+                                <button
+                                    onClick={() => this.handleClick()}
+                                    className="buttonPushable3"
+                                >
+                                    <span className="buttonFront3">
+                                        Register
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

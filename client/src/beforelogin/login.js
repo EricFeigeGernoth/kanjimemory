@@ -44,43 +44,62 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="bodyBox">
-                <div className="regLogBox">
-                    <h1 className="header1">Step In</h1>
-
-                    {this.state.error && (
-                        <p className="error">oops!!! something went wrong!!</p>
-                    )}
-                    <div className="inputFields">
-                        <div className="input">
-                            <input
-                                type="text"
-                                name="email"
-                                placeholder="email"
-                                onChange={(e) => this.handleChange(e)}
-                            ></input>
-                        </div>
-                        <div className="input">
-                            {" "}
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="password"
-                                onChange={(e) => this.handleChange(e)}
-                            ></input>
-                        </div>
-                        <div className="button">
-                            {" "}
-                            <button onClick={() => this.handleClick()}>
-                                login
-                            </button>
-                        </div>
-
-                        <Link to="/">
-                            <p className="subtitle">
+            <div>
+                <div className="logRegButt">
+                    <div className="backButtonDiv">
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                            <p className="backButton">
                                 Click to go to Registration
                             </p>
                         </Link>
+                    </div>
+                </div>
+                <div className="bodyBox">
+                    <div className="regLogBox">
+                        <div className="mainHeaderDiv">
+                            {" "}
+                            <h1 className="mainHeader">Login</h1>
+                        </div>
+
+                        {this.state.error && (
+                            <p className="error">
+                                oops!!! something went wrong!!
+                            </p>
+                        )}
+                        <div className="regInputFields">
+                            <div className="input">
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder="email"
+                                    onChange={(e) => this.handleChange(e)}
+                                ></input>
+                            </div>
+                            <div className="input">
+                                {" "}
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="password"
+                                    onChange={(e) => this.handleChange(e)}
+                                ></input>
+                            </div>
+                            {/* <div className="button">
+                                {" "}
+                                <button onClick={() => this.handleClick()}>
+                                    login
+                                </button>
+                            </div> */}
+                            <div className="button">
+                                {" "}
+                                <button
+                                    onClick={() => this.handleClick()}
+                                    className="buttonPushable3"
+                                >
+                                    <span className="buttonFront3">Log In</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
