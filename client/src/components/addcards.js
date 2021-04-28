@@ -223,7 +223,7 @@ export default function addCards() {
             {status.overview && (
                 <div>
                     <div className="titleContainer">
-                        <p className="title1">
+                        <p className="deckCreatorTitle">
                             Please choose a deck by clicking on the deck
                         </p>
                     </div>
@@ -385,7 +385,65 @@ export default function addCards() {
                                     })}
                                 {status.editOld && (
                                     <div>
-                                        <div className="secondoverlay">
+                                        {" "}
+                                        <div className="overlay">
+                                            <div className="whiteScreen">
+                                                <div className="exitDiv">
+                                                    <p
+                                                        onClick={
+                                                            closeOldEditCard
+                                                        }
+                                                        className="exitCardEdit"
+                                                    >
+                                                        Exit
+                                                    </p>
+                                                </div>
+                                                <div className="rowFlashCards">
+                                                    <div className="flashcard">
+                                                        <p className="title1">
+                                                            Front side
+                                                        </p>
+                                                        <textarea
+                                                            name="front"
+                                                            id="cardText1"
+                                                            className="editCard"
+                                                            onChange={
+                                                                handleChange
+                                                            }
+                                                            defaultValue={
+                                                                status.front
+                                                            }
+                                                        ></textarea>
+                                                    </div>
+                                                    <div className="flashcard">
+                                                        <p className="title1">
+                                                            Back side
+                                                        </p>
+                                                        <textarea
+                                                            name="back"
+                                                            id="cardText2"
+                                                            className="editCard"
+                                                            onChange={
+                                                                handleChange
+                                                            }
+                                                            defaultValue={
+                                                                status.back
+                                                            }
+                                                        ></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <button
+                                                    onClick={updateOldCard}
+                                                    className="buttonPushable"
+                                                >
+                                                    <span className="buttonFront">
+                                                        Update Card
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {/* <div className="secondoverlay">
                                             <div>
                                                 <p onClick={closeOldEditCard}>
                                                     X
@@ -414,7 +472,7 @@ export default function addCards() {
                                             <button onClick={updateOldCard}>
                                                 Update old card
                                             </button>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 )}
                             </div>

@@ -66,18 +66,33 @@ export default function DeckCreator() {
             {status.noDeck && (
                 <section>
                     {" "}
-                    <p>You dont have a Deck yet, would you like to add one?</p>
-                    <div className="input">
-                        <input
-                            type="text"
-                            name="deck"
-                            placeholder="deck"
-                            // onChange={(e) => this.handleChange(e)}
-                            onChange={handleChange}
-                        ></input>
-                        <button onClick={handleClick}>
-                            Confirm name of the deck
-                        </button>
+                    <div className="deckCreatorDivFlex">
+                        {" "}
+                        <div>
+                            <p className="deckCreatorTitle">
+                                Please enter here your new deckname<br></br>
+                            </p>
+                        </div>
+                        <div className="deckInputContainer">
+                            <div className="deckInputDiv">
+                                <input
+                                    className="deckInput"
+                                    type="text"
+                                    name="deck"
+                                    placeholder="deck"
+                                    // onChange={(e) => this.handleChange(e)}
+                                    onChange={handleChange}
+                                ></input>
+                                <button
+                                    onClick={handleClick}
+                                    className="buttonPushable3"
+                                >
+                                    <span className="buttonFront3">
+                                        Confirm name of the deck
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </section>
             )}
@@ -96,8 +111,40 @@ export default function DeckCreator() {
             )}
             {status.newDeck && (
                 <section>
-                    {" "}
-                    <p>
+                    <div className="deckCreatorDivFlex">
+                        {" "}
+                        <div>
+                            <p className="deckCreatorTitle">
+                                Please enter here your new deckname<br></br>
+                            </p>
+                        </div>
+                        <div className="deckInputContainer">
+                            <div className="deckInputDiv">
+                                <input
+                                    className="deckInput"
+                                    type="text"
+                                    name="deck"
+                                    placeholder="deck"
+                                    // onChange={(e) => this.handleChange(e)}
+                                    onChange={handleChange}
+                                ></input>
+                                <button
+                                    onClick={handleClick}
+                                    className="buttonPushable3"
+                                >
+                                    <span className="buttonFront3">
+                                        Confirm name of the deck
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="deckCreatorTitleDiv">
+                            <p className="deckCreatorTitle">
+                                Thanks for creating a new deck!
+                            </p>
+                        </div>
+                    </div>{" "}
+                    {/* <p>
                         Thanks for creating a deck. Would you like to see your
                         new Deck?
                     </p>
@@ -112,11 +159,11 @@ export default function DeckCreator() {
                         <button onClick={handleClick}>
                             Confirm name of the deck
                         </button>
-                    </div>
+                    </div> */}
                 </section>
             )}
 
-            <p>We are in the Deck Creator Page</p>
+            {/* <p>We are in the Deck Creator Page</p> */}
         </div>
     );
 }

@@ -235,7 +235,7 @@ app.get("/getmemorycards/:deckid", (req, res) => {
         var memorycards = result.rows;
         shuffleArray(memorycards);
 
-        var slicedMemoryCards = memorycards.slice(0, 2);
+        var slicedMemoryCards = memorycards.slice(0, 6);
 
         var splitMemoryCards = [];
         for (var i = 0; i < slicedMemoryCards.length; i++) {

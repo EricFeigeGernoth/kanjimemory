@@ -150,7 +150,7 @@ export default function Memory() {
             divArray = [];
             matchArray = [];
             matchedCounter += 1;
-            if (matchedCounter == 2) {
+            if (matchedCounter == 6) {
                 setMemory({
                     ...memory,
                     allMatches: [...matchedDivs],
@@ -224,56 +224,78 @@ export default function Memory() {
 
     return (
         <div>
-            <p>Wow I am in the memory</p>
             {status.overview && (
                 <div>
-                    <button onClick={startGame}>Start the Game mate</button>
-                    <div className="deckGrid">
-                        {alldecks &&
-                            alldecks.map((deck) => {
-                                return (
-                                    <div
-                                        className="deckPicture"
-                                        key={deck.id}
-                                        onClick={handleClick}
-                                        value={deck.id}
-                                        data-deckid={deck.id}
-                                    >
-                                        <p data-deckid={deck.id}>
-                                            {deck.deckname}
-                                        </p>
-                                    </div>
-                                );
-                            })}
+                    <div className="titleContainer">
+                        <p className="title1">Wow I am in the memory</p>
+                    </div>
+                    <div className="newCardButtonDiv">
+                        <button onClick={startGame} className="buttonPushable2">
+                            <span className="buttonFront2">Start Game</span>
+                        </button>
+                    </div>
+                    <div className="deckFlex">
+                        <div className="deckGrid">
+                            {alldecks &&
+                                alldecks.map((deck) => {
+                                    return (
+                                        <div
+                                            className="deckPicture"
+                                            key={deck.id}
+                                            onClick={handleClick}
+                                            value={deck.id}
+                                            data-deckid={deck.id}
+                                        >
+                                            <p
+                                                data-deckid={deck.id}
+                                                className="deckTitle"
+                                            >
+                                                {deck.deckname}
+                                            </p>
+                                            <img
+                                                src="open-book.png"
+                                                className="deckIcon"
+                                                onClick={handleClick}
+                                                value={deck.id}
+                                                data-deckid={deck.id}
+                                            ></img>
+                                        </div>
+                                    );
+                                })}
+                        </div>
                     </div>
                 </div>
             )}
             {status.memorySet && (
                 <div>
-                    {/* <p>{memory.clickCount}</p> */}
-                    <div className="cardGrid">
-                        {memoryCards &&
-                            memoryCards.map((card) => {
-                                return (
-                                    <div
-                                        className="CardBox"
-                                        key={card.keyID}
-                                        onClick={clickCard}
-                                        data-keyid={card.keyID}
-                                        data-cardid={card.id}
-                                    >
-                                        <p>{card.front}</p>
-                                        <p>{card.back}</p>
-                                        {/* <div
-                                            className="backSide"
-                                            // onClick={clickCard}
-                                            // data-keyid={card.keyID}
-                                            // data-cardid={card.id}
-                                        > */}
-                                        {/* </div> */}
-                                    </div>
-                                );
-                            })}
+                    <div className="memoryTitleDiv">
+                        <h1 className="memoryTitle">
+                            Match the vocabel to its english translation
+                        </h1>
+                    </div>
+                    <div className="cardFlex">
+                        {" "}
+                        <div className="cardGrid2">
+                            {memoryCards &&
+                                memoryCards.map((card) => {
+                                    return (
+                                        <div
+                                            className="CardBox"
+                                            key={card.keyID}
+                                            onClick={clickCard}
+                                            data-keyid={card.keyID}
+                                            data-cardid={card.id}
+                                        >
+                                            <p className="textInsideCardBox">
+                                                {card.front}
+                                            </p>
+                                            <p className="textInsideCardBox">
+                                                {card.back}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                        </div>
                     </div>
                 </div>
             )}
@@ -281,9 +303,33 @@ export default function Memory() {
                 <div className="overlay">
                     <div className="WinnerCard">
                         {" "}
-                        <p>You have won would you like a rematch?</p>
-                        <button onClick={back}>Back to Decks</button>
-                        <button onClick={rematch}>Rematch</button>
+                        <div className="winningDiv">
+                            <p className="winningMessage">SO MUCH WIN!!!</p>
+                        </div>
+                        <div className="winningDiv">
+                            <img
+                                src="tenor.gif"
+                                alt="happy crocodile"
+                                className="winningGif"
+                            />
+                        </div>
+                        <div className="cardsOption2">
+                            <button onClick={back} className="backButtonDiv2">
+                                <div>
+                                    <span className="backButton">
+                                        Back to Decks
+                                    </span>
+                                </div>
+                            </button>
+                            <button
+                                onClick={rematch}
+                                className="backButtonDiv2"
+                            >
+                                <div>
+                                    <span className="backButton">Rematch</span>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
